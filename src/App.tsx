@@ -1,9 +1,22 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 
-import About from './screens/About';
+import About from './screens/about/About';
 import './App.css';
+import useScrollEffect from './hooks/useScrollEffect';
+
+const scrollOptions = {
+  onScrollTop: () => {
+    console.log("scroll top");
+  },
+  onscrollBottom: () => {
+    console.log('scroll bottom');
+  },
+}
 
 function App() {
+  useScrollEffect(scrollOptions);
+
   return (
     <div className="App">
       <Routes>
