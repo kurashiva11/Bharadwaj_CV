@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo } from "react";
 import { debounce } from 'lodash';
 
@@ -6,16 +7,14 @@ import { screenScrollTime } from '../constants';
 
 type scrollEffectOptions = {
     onScrollTop: () => void;
-    onscrollBottom: () => void;
+    onScrollBottom: () => void;
 }
 
 const RESISTANCE = 40;
 
 const useScrollEffect = (options: scrollEffectOptions) => {
-    console.log('options =', options);
-    // const scroll = useCallback((cb) => debounce(cb, screenScrollTime, {leading: true}), []);
     const debouncedScrollTop = useMemo(() => debounce(options.onScrollTop, screenScrollTime, {leading: true, trailing: false}), []);
-    const debouncedScrollBottom = useMemo(() => debounce(options.onscrollBottom, screenScrollTime, {leading: true, trailing: false}), []);
+    const debouncedScrollBottom = useMemo(() => debounce(options.onScrollBottom, screenScrollTime, {leading: true, trailing: false}), []);
 
     useEffect(() => {
         document.addEventListener('wheel', (event: any) => {
@@ -26,7 +25,6 @@ const useScrollEffect = (options: scrollEffectOptions) => {
                 debouncedScrollBottom();
             }
         });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 }
 
