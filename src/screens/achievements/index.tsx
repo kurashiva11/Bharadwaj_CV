@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import withScrollEffect from '../../HOC/withScrollEffect';
+import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 import styles from './achievements.module.scss';
 
 function Achievements() {
@@ -16,4 +16,4 @@ function Achievements() {
     )
 }
 
-export default withScrollEffect(Achievements, {nextScreen: '/achievements', prevScreen: '/'});
+export default withMountAnimatedScreen(Achievements);

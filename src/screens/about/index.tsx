@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import withScrollEffect from '../../HOC/withScrollEffect';
 
+import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 import styles from './about.module.scss';
 
 function About() {
@@ -18,4 +18,4 @@ function About() {
     );
 }
 
-export default withScrollEffect(About, {nextScreen: '/achievements', prevScreen: '/'});
+export default withMountAnimatedScreen(About);

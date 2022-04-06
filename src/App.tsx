@@ -1,31 +1,24 @@
-import { Routes, Route } from 'react-router';
+import About from "./screens/about";
+import Achievements from "./screens/achievements";
 
-import About from './screens/about';
-import Achievements from './screens/achievements';
-
+// can add upto 10 screens if require to add more screens then add nth-child css at public/index.css file.
 const routes = [
   {
-    path: '/',
+    path: "/",
     Screen: About,
   },
   {
-    path: '/achievements',
+    path: "/achievements",
     Screen: Achievements,
   },
-  // No Match route
-  // TODO: Show that there is nothing here to learn.
-  {
-    path: '*',
-    Screen: About,
-  }
 ];
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        {routes.map(route => <Route path={route.path} element={<route.Screen />}/>)}
-      </Routes>
+      {routes.map((route) => (
+        <route.Screen key={route.path} />
+      ))}
     </div>
   );
 }

@@ -14,11 +14,9 @@ export default function withScrollEffect (WrappedComponent: React.Component | Re
 
         useScrollEffect({
             onScrollTop: () => {
-                console.log('scrolling top');
                 props.prevScreen && navigate(props.prevScreen, {replace: true});
             },
             onScrollBottom: () => {
-                console.log('scrolling top');
                 props.nextScreen && navigate(props.nextScreen, {replace: true});
             }
         });
