@@ -1,1 +1,1 @@
-export const screenScrollTime = 300;
+export const screenScrollTime = 1200;
