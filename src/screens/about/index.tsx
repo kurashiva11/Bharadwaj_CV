@@ -1,24 +1,11 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import withScrollEffect from '../../HOC/withScrollEffect';
 
-import useScrollEffect from '../../hooks/useScrollEffect';
 import styles from './about.module.scss';
 
-export default function About() {
-    const navigate = useNavigate();
-
-    useScrollEffect({
-        onScrollTop: () => {
-            console.log("scrolling top")
-            // navigate('/*', {replace: true});
-        },
-        onScrollBottom: () => {
-            console.log("scrolling bottom")
-            navigate('/achievements', {replace: true});
-        }
-    })
-
+function About() {
     useEffect(() => {
+        console.log('About mounted');
         return () => {
             console.log('removing about');
         }
@@ -30,3 +17,5 @@ export default function About() {
         </div>
     );
 }
+
+export default withScrollEffect(About, {nextScreen: '/achievements', prevScreen: '/'});
