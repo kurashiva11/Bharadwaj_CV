@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Bharadwaj_CV/static/css/main.f46e5245.css",
+    "main.js": "/Bharadwaj_CV/static/js/main.9444a516.js",
+    "index.html": "/Bharadwaj_CV/index.html",
+    "main.f46e5245.css.map": "/Bharadwaj_CV/static/css/main.f46e5245.css.map",
+    "main.9444a516.js.map": "/Bharadwaj_CV/static/js/main.9444a516.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f46e5245.css",
+    "static/js/main.9444a516.js"
+  ]
+}
