@@ -1,4 +1,33 @@
+@use "../../index" as base;
+
 .about {
     height: 100vh;
     background-color: aqua;
+    display: flex;
+}
+
+.introduction {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    flex: 3.5;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    font-family: base.$styledFontFamily;
+
+    @extend .unselecteable;
+
+    &-name {
+        color: black;
+        font-size: base.$largeFontSize;
+    }
+    &-resignation {
+        font-size: base.$fontSize;
+    }
+}
+
+.game_comtainer {
+    flex: 5;
 }
