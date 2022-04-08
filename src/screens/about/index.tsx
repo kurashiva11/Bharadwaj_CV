@@ -17,8 +17,10 @@ function About() {
     return (
         <div className={styles.about}>
             <div className={styles.introduction}>
-                <div className={styles["introduction-name"]}>Bharadwaj Kura.</div>
-                <div className={styles["introduction-resignation"]}>Software Developer.</div>
+                <div className={styles["introduction--container"]}>
+                    <div className={styles["introduction-name"]}>Bharadwaj Kura.</div>
+                    <div className={styles["introduction-resignation"]}>Software Developer.</div>
+                </div>
             </div>
             <div className={styles["game_comtainer"]}>
                 game

@@ -1,13 +1,14 @@
 @use "../../index" as base;
 
 .about {
+    background: url('../../assets/galaxyImage.jpeg') no-repeat center center fixed;
+    background-size: cover;
     height: 100vh;
-    background-color: aqua;
+    width: 100vw;
     display: flex;
 }
 
 .introduction {
-    background-color: transparent;
     display: flex;
     flex-direction: column;
     flex: 3.5;
@@ -16,11 +17,19 @@
     justify-items: center;
     justify-content: center;
     font-family: base.$styledFontFamily;
+    color: blue;
 
     @extend .unselecteable;
 
+    &--container {
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        background-color: rbga(7, 71, 100, 0.9);
+        padding: 20px;
+        z-index: 13;
+    }
+
     &-name {
-        color: black;
         font-size: base.$largeFontSize;
     }
     &-resignation {
