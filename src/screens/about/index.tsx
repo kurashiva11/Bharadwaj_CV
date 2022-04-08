@@ -6,26 +6,21 @@ import Game from './game';
 
 function About() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const scoreRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         var ctx = canvasRef.current?.getContext("2d");
         // @ts-ignore
-        console.log('canvasRef.current?.parentNode?.clientWidth =', canvasRef.current?.parentNode);
-        // @ts-ignore
         canvasRef.current && (canvasRef.current.width = canvasRef.current?.parentNode?.clientWidth);
         // @ts-ignore
         canvasRef.current && (canvasRef.current.height = canvasRef.current?.parentNode?.clientHeight);
-        //  // @ts-ignore
-        //  canvasRef.current && (canvasRef.current.clientLeft = canvasRef.current?.parentNode?.clientLeft);
-        //  // @ts-ignore
-        //  canvasRef.current && (canvasRef.current.clientTop = canvasRef.current?.parentNode?.clientTop);
 
-        if (ctx) {
-            console.log(ctx);
-            // @ts-ignore
-            new Game(ctx);
+        if (ctx && scoreRef.current) {
+            new Game(ctx, scoreRef.current);
         }
     }, []);
+
+    // useEffect(() => {}, [game?.score]);
 
     return (
         <div className={styles.about}>
@@ -37,6 +32,7 @@ function About() {
                     </canvas>
                 </div>
             </div>
+                    <div className={styles["score"]}>score: <span ref={scoreRef}>0</span></div>
             <div className={styles.introduction}>
                 <div className={styles["introduction--container"]}>
                     <div className={styles["introduction-name"]}>Bharadwaj Kura.</div>

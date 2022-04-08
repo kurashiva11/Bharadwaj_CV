@@ -74,14 +74,16 @@ class Enemy extends MovingCircle {
 
 class Game {
     ctx: any;
+    scoreElement: any;
     player: Player;
     bullets: Bullet[] = [];
     enemies: Enemy[] = [];
     animationFrame: any;
     score: number = 0;
 
-    constructor(ctx: any) {
+    constructor(ctx: any, scoreElement: any) {
         this.ctx = ctx;
+        this.scoreElement = scoreElement;
 
         ctx.canvas.addEventListener('mousedown', (event: any) => {
             let {width, height} = this.ctx.canvas;
@@ -131,6 +133,7 @@ class Game {
                     this.bullets.splice(index, 1);
                 }, 0);
                 this.score += 1;
+                this.scoreElement && (this.scoreElement.innerHTML = this.score);
             }
         })
     }
