@@ -1,5 +1,7 @@
 import About from "./screens/about";
 import Achievements from "./screens/achievements";
+import './pageScroll';
+import './pageScroll.css';
 
 // can add upto 10 screens if require to add more screens then add nth-child css at public/index.css file.
 const routes = [

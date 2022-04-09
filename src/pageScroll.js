@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 // For Screen Animations
 $(function () {
   // ------------- VARIABLES ------------- //
@@ -11,16 +13,16 @@ $(function () {
     var currentSlideNumber = 0;
     var totalSlideNumber = $(".screen").length;
 
-  // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
+    // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
     function parallaxScroll(evt) {
         //Set delta for all other browsers
         let delta = evt.wheelDelta;
         if (isFirefox) {
-            //Set delta for Firefox
-            delta = evt.detail * -120;
+        //Set delta for Firefox
+        delta = evt.detail * -120;
         } else if (isIe) {
-            //Set delta for IE
-            delta = -evt.deltaY;
+        //Set delta for IE
+        delta = -evt.deltaY;
         }
 
         if (ticking !== true) {
@@ -28,8 +30,8 @@ $(function () {
             //Down scroll
             ticking = true;
             if (currentSlideNumber !== totalSlideNumber - 1) {
-                currentSlideNumber++;
-                nextItem();
+            currentSlideNumber++;
+            nextItem();
             }
             slideDurationTimeout(slideDurationSetting);
         }
@@ -37,7 +39,7 @@ $(function () {
             //Up scroll
             ticking = true;
             if (currentSlideNumber !== 0) {
-                currentSlideNumber--;
+            currentSlideNumber--;
             }
             previousItem();
             slideDurationTimeout(slideDurationSetting);
@@ -45,18 +47,18 @@ $(function () {
         }
     }
 
-  // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
+    // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
     function slideDurationTimeout(slideDuration) {
         setTimeout(function () {
-            ticking = false;
+        ticking = false;
         }, slideDuration);
     }
 
-  // ------------- ADD EVENT LISTENER ------------- //
+    // ------------- ADD EVENT LISTENER ------------- //
     var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
     window.addEventListener(mousewheelEvent, parallaxScroll, false);
 
-  // ------------- SLIDE MOTION ------------- //
+    // ------------- SLIDE MOTION ------------- //
     function nextItem() {
         const previousSlide = $(".screen").eq(currentSlideNumber - 1);
         console.log();
