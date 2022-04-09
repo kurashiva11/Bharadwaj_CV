@@ -14,9 +14,13 @@ class Circle {
         this.color = color;
     }
 
-    draw () {
+    draw (img?: any) {
+        if (img) {
+            this.ctx.drawImage(img, this.x- this.radius, this.y- this.radius, this.radius*2, this.radius*2);
+            return;
+        }
         this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        !img && this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         this.ctx.fillStyle = `rgb(${this.color[0]}, ${this.color[1]}, ${this.color[2]})`;
         this.ctx.fill();
     }
@@ -31,11 +35,17 @@ class MovingCircle extends Circle {
         this.draw.bind(this);
     }
 
-    draw(): void {
-        super.draw();
+    draw(img?: any): void {
+        super.draw(img);
+        if (img)
+            return;
         let prevX = this.x - this.velocity.x + this.radius/2;
-        let prevY = this.y - this.velocity.y + this.radius/2
-        this.ctx.arc(prevX, prevY, this.radius, 0, Math.PI * 2, false);
+        let prevY = this.y - this.velocity.y + this.radius/2;
+        // if (img) {
+        //     this.ctx.draw()
+        // } else {
+            this.ctx.arc(prevX, prevY, this.radius, 0, Math.PI * 2, false);
+        // }
         this.ctx.fillStyle = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, 0.4)`;
         this.ctx.fill();
     }
@@ -60,12 +70,18 @@ class Bullet extends MovingCircle {
 }
 
 class Enemy extends MovingCircle {
-
-    constructor(ctx: any, x: number, y: number, radius: number, velocity: {x: number, y: number}) {
+    img: any;
+    constructor(ctx: any, x: number, y: number, radius: number, velocity: {x: number, y: number}, img: any) {
         super(ctx, x, y, radius, [255, 0, 0], velocity);
+        this.draw.bind(this);
+        this.img = img;
     }
 
-    update () {
+    draw(): void {
+        super.draw(this.img);
+    }
+
+    update (): void {
         this.draw();
         this.x += this.velocity.x;
         this.y += this.velocity.y;
@@ -81,7 +97,7 @@ class Game {
     animationFrame: any;
     score: number = 0;
 
-    constructor(ctx: any, scoreElement: any) {
+    constructor(ctx: any, scoreElement: any, img: any) {
         this.ctx = ctx;
         this.scoreElement = scoreElement;
 
@@ -89,8 +105,8 @@ class Game {
             let {width, height} = this.ctx.canvas;
             const angle = Math.atan2(event.clientY - height / 2, event.clientX - width / 2);
             const velocity = {
-                x: Math.cos(angle) * BULLET_VELOCITY,
-                y: Math.sin(angle) * BULLET_VELOCITY,
+                x: Math.cos(angle) * (BULLET_VELOCITY + this.score / 5),
+                y: Math.sin(angle) * (BULLET_VELOCITY + this.score / 5),
             }
             this.bullets.push(new Bullet(this.ctx, width / 2, height / 2, velocity));
         });
@@ -112,7 +128,7 @@ class Game {
                 x: Math.cos(angle),
                 y: Math.sin(angle),
             }
-            this.enemies.push(new Enemy(this.ctx, x, y, radius, velocity))
+            this.enemies.push(new Enemy(this.ctx, x, y, radius, velocity, img))
         }, 1000 - this.score * 3);
 
         this.player = new Player(this.ctx);
