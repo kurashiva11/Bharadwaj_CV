@@ -105,9 +105,12 @@ class Game {
     animationFrame: any;
     score: number = 0;
 
-    constructor(ctx: any, scoreElement: any, asteroid: any, planet: any) {
+    gameOver: () => void;
+
+    constructor(ctx: any, scoreElement: any, asteroid: any, planet: any, gameOver: () => void) {
         this.ctx = ctx;
         this.scoreElement = scoreElement;
+        this.gameOver = gameOver;
 
         ctx.canvas.addEventListener('mousedown', (event: any) => {
             let {width, height} = this.ctx.canvas;
@@ -189,6 +192,7 @@ class Game {
             const enemyPlayerDist = Math.hypot(this.player.x - enemy.x, this.player.y - enemy.y);
             if (enemyPlayerDist - this.player.radius - enemy.radius < 1) {
                 cancelAnimationFrame(this.animationFrame);
+                this.gameOver();
             }
 
             this.detectBulletEnemyCollition(enemy, index);
