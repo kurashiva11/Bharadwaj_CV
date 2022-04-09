@@ -1,7 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 .screen {
-    background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -71,13 +70,6 @@
 
 .content-wrapper {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-flow: column nowrap;
-    color: #fff;
-    font-family: Montserrat;
-    text-transform: uppercase;
     /* transform: translateY(40vh); */
     will-change: transform;
     -webkit-backface-visibility: hidden;

@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/Bharadwaj_CV/static/css/main.f46e5245.css",
-    "main.js": "/Bharadwaj_CV/static/js/main.9444a516.js",
-    "index.html": "/Bharadwaj_CV/index.html",
-    "main.f46e5245.css.map": "/Bharadwaj_CV/static/css/main.f46e5245.css.map",
-    "main.9444a516.js.map": "/Bharadwaj_CV/static/js/main.9444a516.js.map"
+    "main.css": "/bharadwaj_cv/static/css/main.7975de6a.css",
+    "main.js": "/bharadwaj_cv/static/js/main.45f2e5d2.js",
+    "static/media/earth.png": "/bharadwaj_cv/static/media/earth.38225ed231b802209d97.png",
+    "static/media/asteroid.png": "/bharadwaj_cv/static/media/asteroid.3cba544bc37c80d1ec6c.png",
+    "static/media/galaxyImage.jpeg": "/bharadwaj_cv/static/media/galaxyImage.d42a16715fef3c2a7a1a.jpeg",
+    "index.html": "/bharadwaj_cv/index.html",
+    "main.7975de6a.css.map": "/bharadwaj_cv/static/css/main.7975de6a.css.map",
+    "main.45f2e5d2.js.map": "/bharadwaj_cv/static/js/main.45f2e5d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.f46e5245.css",
-    "static/js/main.9444a516.js"
+    "static/css/main.7975de6a.css",
+    "static/js/main.45f2e5d2.js"
   ]
 }
