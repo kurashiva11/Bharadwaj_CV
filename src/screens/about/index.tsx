@@ -15,12 +15,15 @@ function About() {
         // @ts-ignore
         canvasRef.current && (canvasRef.current.height = canvasRef.current?.parentNode?.clientHeight);
 
-        const img = new Image();
-        img.src = require('../../assets/asteroid.png');
-        img.onload = () => {
-            console.log('img loaded')
-            if (ctx && scoreRef.current) {
-                new Game(ctx, scoreRef.current, img);
+        const asteroid = new Image();
+        asteroid.src = require('../../assets/asteroid.png');
+        const planet = new Image();
+        planet.src = require('../../assets/earth.png');
+        asteroid.onload = () => {
+            planet.onload = () => {
+                if (ctx && scoreRef.current) {
+                    new Game(ctx, scoreRef.current, asteroid, planet);
+                }
             }
         }
     }, []);

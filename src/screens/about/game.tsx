@@ -37,23 +37,27 @@ class MovingCircle extends Circle {
 
     draw(img?: any): void {
         super.draw(img);
+        // showing no track for now.
         if (img)
             return;
         let prevX = this.x - this.velocity.x + this.radius/2;
         let prevY = this.y - this.velocity.y + this.radius/2;
-        // if (img) {
-        //     this.ctx.draw()
-        // } else {
-            this.ctx.arc(prevX, prevY, this.radius, 0, Math.PI * 2, false);
-        // }
+        this.ctx.arc(prevX, prevY, this.radius, 0, Math.PI * 2, false);
         this.ctx.fillStyle = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, 0.4)`;
         this.ctx.fill();
     }
 }
 
 class Player extends Circle {
-    constructor(ctx: any) {
-        super(ctx, ctx.canvas.width / 2, ctx.canvas.height / 2, 20, [0, 0, 0]);
+    planet: any;
+    constructor(ctx: any, planet: any) {
+        super(ctx, ctx.canvas.width / 2, ctx.canvas.height / 2, 25, [0, 0, 0]);
+        this.planet = planet;
+        this.draw.bind(this);
+    }
+
+    draw(): void {
+        super.draw(this.planet);
     }
 }
 
@@ -70,15 +74,15 @@ class Bullet extends MovingCircle {
 }
 
 class Enemy extends MovingCircle {
-    img: any;
-    constructor(ctx: any, x: number, y: number, radius: number, velocity: {x: number, y: number}, img: any) {
+    asteroid: any;
+    constructor(ctx: any, x: number, y: number, radius: number, velocity: {x: number, y: number}, asteroid: any) {
         super(ctx, x, y, radius, [255, 0, 0], velocity);
+        this.asteroid = asteroid;
         this.draw.bind(this);
-        this.img = img;
     }
 
     draw(): void {
-        super.draw(this.img);
+        super.draw(this.asteroid);
     }
 
     update (): void {
@@ -97,7 +101,7 @@ class Game {
     animationFrame: any;
     score: number = 0;
 
-    constructor(ctx: any, scoreElement: any, img: any) {
+    constructor(ctx: any, scoreElement: any, asteroid: any, planet: any) {
         this.ctx = ctx;
         this.scoreElement = scoreElement;
 
@@ -128,10 +132,10 @@ class Game {
                 x: Math.cos(angle),
                 y: Math.sin(angle),
             }
-            this.enemies.push(new Enemy(this.ctx, x, y, radius, velocity, img))
+            this.enemies.push(new Enemy(this.ctx, x, y, radius, velocity, asteroid))
         }, 1000 - this.score * 3);
 
-        this.player = new Player(this.ctx);
+        this.player = new Player(this.ctx, planet);
 
         this.animate.bind(this);
         this.detectBulletEnemyCollition.bind(this);
