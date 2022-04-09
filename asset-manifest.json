@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/bharadwaj_cv/static/css/main.7975de6a.css",
-    "main.js": "/bharadwaj_cv/static/js/main.45f2e5d2.js",
-    "static/media/earth.png": "/bharadwaj_cv/static/media/earth.38225ed231b802209d97.png",
-    "static/media/asteroid.png": "/bharadwaj_cv/static/media/asteroid.3cba544bc37c80d1ec6c.png",
-    "static/media/galaxyImage.jpeg": "/bharadwaj_cv/static/media/galaxyImage.d42a16715fef3c2a7a1a.jpeg",
-    "index.html": "/bharadwaj_cv/index.html",
-    "main.7975de6a.css.map": "/bharadwaj_cv/static/css/main.7975de6a.css.map",
-    "main.45f2e5d2.js.map": "/bharadwaj_cv/static/js/main.45f2e5d2.js.map"
+    "main.css": "/Bharadwaj_CV/static/css/main.9de523b5.css",
+    "main.js": "/Bharadwaj_CV/static/js/main.fecb1edd.js",
+    "static/media/earth.png": "/Bharadwaj_CV/static/media/earth.38225ed231b802209d97.png",
+    "static/media/asteroid.png": "/Bharadwaj_CV/static/media/asteroid.3cba544bc37c80d1ec6c.png",
+    "static/media/galaxyImage.jpeg": "/Bharadwaj_CV/static/media/galaxyImage.d42a16715fef3c2a7a1a.jpeg",
+    "index.html": "/Bharadwaj_CV/index.html",
+    "main.9de523b5.css.map": "/Bharadwaj_CV/static/css/main.9de523b5.css.map",
+    "main.fecb1edd.js.map": "/Bharadwaj_CV/static/js/main.fecb1edd.js.map"
   },
   "entrypoints": [
-    "static/css/main.7975de6a.css",
-    "static/js/main.45f2e5d2.js"
+    "static/css/main.9de523b5.css",
+    "static/js/main.fecb1edd.js"
   ]
 }
