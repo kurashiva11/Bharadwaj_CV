@@ -15,8 +15,6 @@ function About() {
         if (ctx) {
             ctx.beginPath();
             ctx.moveTo(0, ctx.canvas.height/2 - 10);
-            ctx.lineTo(ctx.canvas.width/2 - 50, ctx.canvas.height/2 - 10);
-            ctx.moveTo(ctx.canvas.width/2 + 116, ctx.canvas.height/2 - 10);
             ctx.lineTo(ctx.canvas.width, ctx.canvas.height/2 - 10);
             ctx.strokeStyle = "white";
             ctx.stroke();
@@ -44,7 +42,7 @@ function About() {
         // if game is already started.
         if (game) {
             setPlayingGame(true);
-            game.animate();
+            game.startGame();
             return;
         }
         const asteroid = new Image();
@@ -64,7 +62,7 @@ function About() {
     }
 
     const pauseGame = () => {
-        cancelAnimationFrame(game.animationFrame);
+        game.pauseGame();
         setPlayingGame(false);
     }
 

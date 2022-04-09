@@ -105,6 +105,8 @@ class Game {
     animationFrame: any;
     score: number = 0;
 
+    playState: boolean = true;
+
     gameOver: () => void;
 
     constructor(ctx: any, scoreElement: any, asteroid: any, planet: any, gameOver: () => void) {
@@ -126,6 +128,8 @@ class Game {
 
         // spawning enemies every second.
         setInterval(() => {
+            // don't create enemies in paused state.
+            if (this.playState === false)   return;
             let {width, height} = this.ctx.canvas;
             let x, y;
             let radius = Math.random() * (40 - 10) + 10;
@@ -147,8 +151,10 @@ class Game {
         this.player = new Player(this.ctx, planet);
 
         this.animate.bind(this);
+        this.pauseGame.bind(this);
+        this.startGame.bind(this);
         this.detectBulletEnemyCollition.bind(this);
-        this.animate();
+        this.startGame();
     }
 
     detectBulletEnemyCollition(enemy: Enemy, enemyIndex: number) {
@@ -165,6 +171,16 @@ class Game {
                 this.scoreElement && (this.scoreElement.innerHTML = this.score);
             }
         })
+    }
+
+    pauseGame() {
+        this.playState = false;
+        cancelAnimationFrame(this.animationFrame);
+    }
+
+    startGame() {
+        this.playState = true;
+        this.animate();
     }
 
     animate() {
