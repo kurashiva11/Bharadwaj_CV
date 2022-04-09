@@ -37,14 +37,18 @@ class MovingCircle extends Circle {
 
     draw(img?: any): void {
         super.draw(img);
-        // showing no track for now.
-        if (img)
-            return;
-        let prevX = this.x - this.velocity.x + this.radius/2;
-        let prevY = this.y - this.velocity.y + this.radius/2;
-        this.ctx.arc(prevX, prevY, this.radius, 0, Math.PI * 2, false);
-        this.ctx.fillStyle = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, 0.4)`;
-        this.ctx.fill();
+        if (img) return;
+        let prevX = this.x - this.velocity.x;
+        let prevY = this.y - this.velocity.y;
+        this.ctx.beginPath();
+        for (let i=0; i<3; i++) {
+            this.ctx.arc(prevX, prevY, this.radius - i - 1, 0, Math.PI * 2 , true);
+            this.ctx.fillStyle = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, 0.4)`;
+            this.ctx.fill();
+            prevX -= this.velocity.x;
+            prevY -= this.velocity.y;
+        }
+        this.ctx.closePath();
     }
 }
 
@@ -63,7 +67,7 @@ class Player extends Circle {
 
 class Bullet extends MovingCircle {
     constructor(ctx: any, x: number, y: number, velocity: {x: number, y: number}) {
-        super(ctx, x, y, 10, [0, 0, 0], velocity);
+        super(ctx, x, y, 7, [255, 0, 0], velocity);
     }
 
     update () {
@@ -76,7 +80,7 @@ class Bullet extends MovingCircle {
 class Enemy extends MovingCircle {
     asteroid: any;
     constructor(ctx: any, x: number, y: number, radius: number, velocity: {x: number, y: number}, asteroid: any) {
-        super(ctx, x, y, radius, [255, 0, 0], velocity);
+        super(ctx, x, y, radius, [178, 102, 40], velocity);
         this.asteroid = asteroid;
         this.draw.bind(this);
     }
@@ -108,11 +112,13 @@ class Game {
         ctx.canvas.addEventListener('mousedown', (event: any) => {
             let {width, height} = this.ctx.canvas;
             const angle = Math.atan2(event.clientY - height / 2, event.clientX - width / 2);
+            const cos = Math.cos(angle);
+            const sin = Math.sin(angle);
             const velocity = {
-                x: Math.cos(angle) * (BULLET_VELOCITY + this.score / 5),
-                y: Math.sin(angle) * (BULLET_VELOCITY + this.score / 5),
+                x: cos * (BULLET_VELOCITY + this.score / 5),
+                y: sin * (BULLET_VELOCITY + this.score / 5),
             }
-            this.bullets.push(new Bullet(this.ctx, width / 2, height / 2, velocity));
+            this.bullets.push(new Bullet(this.ctx, width / 2 + cos*this.player.radius*2, height / 2 + sin*this.player.radius*2, velocity));
         });
 
         // spawning enemies every second.

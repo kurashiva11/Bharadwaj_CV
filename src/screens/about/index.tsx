@@ -38,10 +38,8 @@ function About() {
                     </canvas>
                 </div>
                 <div className="image"></div>
-                <img id='hide' src={require('../../assets/asteroid.png')} width='60' height='60' />
                 <div className={styles["start--game"]}>
                     {/* TODO: add start and stop game and call new game only if user starts the game. and once game is ended then also ask user to play again? */}
-                    {/* TODO: replace circles with planets and astroids */}
                     {/* TODO: fix MovingCircle redraw issue. */}
                     {/* TODO: add particles after be blast an astroid */}
                 </div>
