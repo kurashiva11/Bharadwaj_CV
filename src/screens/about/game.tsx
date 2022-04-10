@@ -96,12 +96,44 @@ class Enemy extends MovingCircle {
     }
 }
 
+class Particles extends Circle {
+    opacity: number;
+    velocity: {x: number, y: number};
+    constructor(ctx: any, x: number, y: number, radius: number, color: [number, number, number], velocity: {x: number, y: number}) {
+        super(ctx, x, y, radius, color);
+        this.opacity = 1;
+        this.velocity = velocity;
+    }
+
+    draw(img?: any): void {
+        if (img) {
+            super.draw(img);
+            return;
+        }
+        this.ctx.save();
+        this.ctx.globalAlpha = this.opacity;
+        super.draw();
+        this.ctx.restore();
+    }
+
+    update () {
+        this.draw();
+        // some friction to slowdown the particles.
+        this.velocity.x *= 0.99;
+        this.velocity.y *= 0.99;
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+        this.opacity -= 0.01;
+    }
+}
+
 class Game {
     ctx: any;
     scoreElement: any;
     player: Player;
     bullets: Bullet[] = [];
     enemies: Enemy[] = [];
+    particles: Particles[] = [];
     animationFrame: any;
     score: number = 0;
 
@@ -161,6 +193,19 @@ class Game {
         this.bullets.forEach((bullet, index) => {
             let dist = Math.hypot(bullet.x - enemy.x, bullet.y - enemy.y);
             if (dist -enemy.radius - bullet.radius < 0.5) {
+                for (let i=0; i<enemy.radius; i++)
+                    this.particles.push(new Particles(
+                        this.ctx,
+                        bullet.x,
+                        bullet.y,
+                        Math.random() * 3,
+                        [178, 102, 40],
+                        {
+                            x: (Math.random() - 0.5) * (Math.random() * 5),
+                            y: (Math.random() - 0.5) * (Math.random() * 5),
+                        }
+                    ));
+
                 // setTimeout is a simple hack to remove the canvas reload/blink.
                 setTimeout(() => {
                     // removing the enemy and bullet, as enemy hit by the bullet.
@@ -212,6 +257,16 @@ class Game {
             }
 
             this.detectBulletEnemyCollition(enemy, index);
+        })
+
+        // creating explosions.
+        this.particles.forEach((particle, index) => {
+            // remove the completly faded particles
+            if (particle.opacity <= 0) {
+                setTimeout(() => this.particles.splice(index, 1), 0);
+            } else {
+                particle.update();
+            }
         })
     }
 }

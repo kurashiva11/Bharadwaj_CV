@@ -13,13 +13,6 @@ function About() {
     const showGameTextOnCanvas = () => {
         const ctx = canvasRef.current?.getContext('2d');
         if (ctx) {
-            ctx.beginPath();
-            ctx.moveTo(0, ctx.canvas.height/2 - 10);
-            ctx.lineTo(ctx.canvas.width, ctx.canvas.height/2 - 10);
-            ctx.strokeStyle = "white";
-            ctx.stroke();
-            ctx.closePath();
-
             ctx.font = "30px Arial";
             ctx.fillStyle = "white";
             ctx.fillText(game ? "Resume Game?" : "Play Game?", ctx.canvas.width/2 - 50, ctx.canvas.height/2);
@@ -86,7 +79,6 @@ function About() {
                 </div>
                 {playing && (
                     <div className={styles["pause--game"]} onClick={pauseGame}>
-                        {/* TODO: add particles after be blast an astroid */}
                         <p>PAUSE GAME.</p>
                     </div>
                 )}
