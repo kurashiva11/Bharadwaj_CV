@@ -1,5 +1,6 @@
 import About from "./screens/about";
 import Achievements from "./screens/achievements";
+import Experience from "./screens/experience";
 import './pageScroll';
 import './pageScroll.css';
 
@@ -8,6 +9,10 @@ const routes = [
   {
     path: "/",
     Screen: About,
+  },
+  {
+    path: "/experience",
+    Screen: Experience,
   },
   {
     path: "/achievements",

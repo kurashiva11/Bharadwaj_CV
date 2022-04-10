@@ -1,0 +1,103 @@
+@use "../../index" as base;
+
+.experience {
+    color: white;
+    background-color: black;
+    height: 100vh;
+    display: flex;
+}
+
+.center {
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.details {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    @extend .center;
+
+    &_container {
+        // display: flex;
+    }
+
+    &--box {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        // border-radius: 30px;
+        @extend .center;
+        text-transform: uppercase;
+        font-family: base.$styledFontFamily;
+        @extend .unselecteable;
+
+        &:nth-child(1) {
+            border-left: 1px solid white;
+            border-top-left-radius: 0;
+        }
+        &:nth-child(2) {
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+        &:nth-child(3) {
+            border-top: 1px solid white;
+            border-left: 1px solid white;
+        }
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                @if $i == 2 {
+                    &::after {
+                        content: '';
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 25px;
+                        background: radial-gradient(circle closest-side, #ff3434, #ced900);
+                        // margin left auto puts thhe psudo element at the start of the border and we have to move it a this.width/2 left more.
+                        margin-left: auto;
+                        position: relative;
+                        right: -25px;
+                    }
+                } @else {
+                    &::before {
+                        content: '';
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 25px;
+                        background: radial-gradient(circle closest-side, #ff3434, #ced900);
+                        // margin right auto puts thhe psudo element at the start of the border and we have to move it a thi.width/2 left more.
+                        margin-right: auto;
+                        position: relative;
+                        left: -25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content {
+    flex-direction: column;
+}
+
+.company--name {
+    background: linear-gradient(to right, red 0%, green 25%, blue 50%, yellow 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.designation, .duration {
+    font-size: 15px;
+    text-transform: capitalize;
+}
+
+.duration {
+    font-size: 13px;
+}
+
+.gif--container {
+    flex: 2;
+}
