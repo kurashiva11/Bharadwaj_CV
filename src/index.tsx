@@ -1,16 +1,17 @@
-import ReactDOM from 'react-dom';
+import {createRoot}  from 'react-dom/client';
 import {BrowserRouter} from 'react-router-dom';
 import './index.scss';
 import App from './App';
 import ErrorBoundary from './ErrorBoundary';
 
-ReactDOM.render(
+//@ts-ignore
+const root = createRoot(document.getElementById('root'));
+root.render(
   <ErrorBoundary>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </ErrorBoundary>,
-  document.getElementById('root')
+  </ErrorBoundary>
 );
 
 /** TODO:
