@@ -1,8 +1,27 @@
+import {useEffect, useRef} from 'react';
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 
 import styles from './index.module.scss';
 
+import { workspaceSVG } from '../../components/workspace/workspaceSVG';
+import { workspaceJS } from '../../components/workspace/workspace';
+
 function Experience() {
+    const svgRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (svgRef.current) {
+            svgRef.current.innerHTML = workspaceSVG;
+
+            let script = document.createElement('script');
+            script.innerHTML = workspaceJS;
+
+            setTimeout(() => {
+                document.body.appendChild(script);
+            }, 100);
+        }
+    }, []);
+
     return (
         <div className={styles.experience}>
             <div className={styles["details"]}>
@@ -43,6 +62,7 @@ function Experience() {
                 </div>
             </div>
             <div className={styles["gif--container"]}>
+                <div ref={svgRef} className={styles["animated_svg"]}></div>
             </div>
         </div>
     )
