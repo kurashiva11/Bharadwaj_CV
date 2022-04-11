@@ -47,6 +47,7 @@ function About() {
             planet.onload = () => {
                 if (ctx && scoreRef.current) {
                     setPlayingGame(true);
+                    scoreRef.current.textContent = '0';
                     const g = new Game(ctx, scoreRef.current, asteroid, planet, gameOver);
                     setGame(g);
                 }
