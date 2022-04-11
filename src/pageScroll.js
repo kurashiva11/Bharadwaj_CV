@@ -61,7 +61,6 @@ $(function () {
     // ------------- SLIDE MOTION ------------- //
     function nextItem() {
         const previousSlide = $(".screen").eq(currentSlideNumber - 1);
-        console.log();
         previousSlide.removeClass("up-scroll").addClass("down-scroll");
     }
 
@@ -69,7 +68,4 @@ $(function () {
         const currentSlide = $(".screen").eq(currentSlideNumber);
         currentSlide.removeClass("down-scroll").addClass("up-scroll");
     }
-
-    window.scrollBy(0, 100);
-    window.scrollBy(0, 0);
 });
