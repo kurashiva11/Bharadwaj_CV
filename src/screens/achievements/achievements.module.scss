@@ -2,4 +2,12 @@
     color: white;
     background-color: black;
     height: 100vh;
+    z-index: 2;
+}
+
+.svg_container {
+    width: min(100vh, 100vw);
+    z-index: 1;
+    position: absolute;
+    display: flex;
 }

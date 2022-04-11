@@ -15,6 +15,7 @@ root.render(
 );
 
 /** TODO:
+ * -1.create backgrounds from [https://www.svgbackgrounds.com/, https://bgjar.com/animated-shape, https://www.freepik.com/free-photos-vectors/svg-background]
  * 0. create a header similar to microsoft by the numbers and make it compatible with mobile.
  * 1. show mutual attraction at contact page (https://www.youtube.com/watch?v=GjbKsOkN1Oc).
  * 2. show starfield till the page loads (https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH&index=1).

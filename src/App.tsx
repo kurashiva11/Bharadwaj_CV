@@ -1,6 +1,7 @@
 import About from "./screens/about";
 import Achievements from "./screens/achievements";
 import Experience from "./screens/experience";
+import Education from './screens/education';
 import './pageScroll';
 import './pageScroll.css';
 
@@ -13,6 +14,10 @@ const routes = [
   {
     path: "/experience",
     Screen: Experience,
+  },
+  {
+    path: '/education',
+    Screen: Education,
   },
   {
     path: "/achievements",
