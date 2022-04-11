@@ -1,22 +1,20 @@
 import { useRef, useEffect } from "react";
+
+import useSVGOnScreen from "../../hooks/useSVGOnScreen";
 import withMountAnimatedScreen from "../../HOC/withMountAnimatedScreen";
 import styles from "./education.module.scss";
 
 import { educationJS } from "../../components/education/education";
 import { educationSVG } from "../../components/education/educationSVG";
 
-function Education() {
+type Props = {
+    isActive: boolean;
+}
+
+function Education(props: Props) {
     const svgRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (svgRef.current) {
-            svgRef.current.innerHTML = educationSVG;
-
-            const script = document.createElement('script');
-            script.innerHTML = educationJS;
-            setTimeout(() => document.body.appendChild(script), 100);
-        }
-    }, []);
+    useSVGOnScreen(props.isActive, educationSVG, educationJS, svgRef);
 
     return (
         <div className={styles.education}>

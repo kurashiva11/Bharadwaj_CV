@@ -1,4 +1,6 @@
-import {useEffect, useRef} from 'react';
+import {useRef} from 'react';
+
+import useSVGOnScreen from '../../hooks/useSVGOnScreen';
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 
 import styles from './index.module.scss';
@@ -6,21 +8,14 @@ import styles from './index.module.scss';
 import { workspaceSVG } from '../../components/workspace/workspaceSVG';
 import { workspaceJS } from '../../components/workspace/workspace';
 
-function Experience() {
+type Props = {
+    isActive: boolean;
+}
+
+function Experience(props: Props) {
     const svgRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (svgRef.current) {
-            svgRef.current.innerHTML = workspaceSVG;
-
-            let script = document.createElement('script');
-            script.innerHTML = workspaceJS;
-
-            setTimeout(() => {
-                document.body.appendChild(script);
-            }, 100);
-        }
-    }, []);
+    useSVGOnScreen(props.isActive, workspaceSVG, workspaceJS, svgRef);
 
     return (
         <div className={styles.experience}>

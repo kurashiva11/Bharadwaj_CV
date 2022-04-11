@@ -96,8 +96,8 @@ function App() {
 
   return (
     <div className="App">
-      {routes.map((route) => (
-        <route.Screen key={route.path} />
+      {routes.map((route, index) => (
+        <route.Screen key={route.path} isActive={index === currentSlideNumber} />
       ))}
     </div>
   );

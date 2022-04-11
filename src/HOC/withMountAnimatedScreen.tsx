@@ -1,6 +1,6 @@
 import React from "react";
 
-function withMountAnimatedScreen(WrappedComponent: React.Component | React.FC) {
+function withMountAnimatedScreen(WrappedComponent: React.Component<any> | React.FC<any>) {
     return function (componentProps: any) {
         return (
             <div className='screen'>

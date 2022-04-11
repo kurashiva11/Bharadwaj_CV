@@ -1,25 +1,21 @@
 import { useEffect, useRef } from 'react';
 
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
+
+import useSVGOnScreen from '../../hooks/useSVGOnScreen';
 import styles from './achievements.module.scss';
 
 import {astronautJS} from '../../components/astronaut/astronaut';
 import {astronautSVG} from '../../components/astronaut/astronautSVG';
 
-function Achievements() {
+type Props = {
+    isActive: boolean;
+}
+
+function Achievements(props: Props) {
     const svgRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (svgRef.current) {
-            svgRef.current.innerHTML = astronautSVG;
-
-            let script = document.createElement('script');
-            script.innerHTML = astronautJS;
-            setTimeout(() => {
-                document.body.appendChild(script);
-            }, 100);
-        }
-    }, []);
+    useSVGOnScreen(props.isActive, astronautSVG, astronautJS, svgRef);
 
     return (
         <div className={styles.achievement}>

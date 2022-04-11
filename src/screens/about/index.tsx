@@ -4,7 +4,12 @@ import styles from './about.module.scss';
 
 import Game from './game';
 
-function About() {
+type Props = {
+    isActive: boolean;
+}
+
+function About(props: Props) {
+    console.log(props.isActive);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const scoreRef = useRef<HTMLCanvasElement>(null);
     const [game, setGame] = useState<any>(null);
