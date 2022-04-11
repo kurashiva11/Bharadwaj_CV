@@ -14,6 +14,7 @@ function About(props: Props) {
     const scoreRef = useRef<HTMLCanvasElement>(null);
     const [game, setGame] = useState<any>(null);
     const [playing, setPlaying] = useState<boolean>(false);
+    const [resumedDueToScroll, setResumedDueToScroll] = useState<boolean>(false);
 
     const showGameTextOnCanvas = () => {
         const ctx = canvasRef.current?.getContext('2d');
@@ -73,6 +74,10 @@ function About(props: Props) {
 
         showGameTextOnCanvas();
     }, []);
+
+    useEffect(() => {
+        !props.isActive && pauseGame();
+    }, [props.isActive]);
 
     return (
         <div className={styles.about}>
