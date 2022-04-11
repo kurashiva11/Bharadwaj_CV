@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Bharadwaj_CV/static/css/main.f4c92f61.css",
-    "main.js": "/Bharadwaj_CV/static/js/main.391076b7.js",
+    "main.js": "/Bharadwaj_CV/static/js/main.59fc563e.js",
     "static/media/earth.png": "/Bharadwaj_CV/static/media/earth.38225ed231b802209d97.png",
     "static/media/asteroid.png": "/Bharadwaj_CV/static/media/asteroid.3cba544bc37c80d1ec6c.png",
     "static/media/galaxyImage.jpeg": "/Bharadwaj_CV/static/media/galaxyImage.d42a16715fef3c2a7a1a.jpeg",
     "index.html": "/Bharadwaj_CV/index.html",
     "main.f4c92f61.css.map": "/Bharadwaj_CV/static/css/main.f4c92f61.css.map",
-    "main.391076b7.js.map": "/Bharadwaj_CV/static/js/main.391076b7.js.map"
+    "main.59fc563e.js.map": "/Bharadwaj_CV/static/js/main.59fc563e.js.map"
   },
   "entrypoints": [
     "static/css/main.f4c92f61.css",
-    "static/js/main.391076b7.js"
+    "static/js/main.59fc563e.js"
   ]
 }
