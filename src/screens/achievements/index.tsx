@@ -5,8 +5,8 @@ import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 import useSVGOnScreen from '../../hooks/useSVGOnScreen';
 import styles from './achievements.module.scss';
 
-import {astronautJS} from '../../components/astronaut/astronaut';
-import {astronautSVG} from '../../components/astronaut/astronautSVG';
+import {astronautJS} from '../../components/SVGs/astronaut/astronaut';
+import {astronautSVG} from '../../components/SVGs/astronaut/astronautSVG';
 
 type Props = {
     isActive: boolean;

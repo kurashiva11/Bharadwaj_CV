@@ -4,8 +4,8 @@ import useSVGOnScreen from "../../hooks/useSVGOnScreen";
 import withMountAnimatedScreen from "../../HOC/withMountAnimatedScreen";
 import styles from "./education.module.scss";
 
-import { educationJS } from "../../components/education/education";
-import { educationSVG } from "../../components/education/educationSVG";
+import { educationJS } from "../../components/SVGs/education/education";
+import { educationSVG } from "../../components/SVGs/education/educationSVG";
 
 type Props = {
     isActive: boolean;

@@ -5,8 +5,8 @@ import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 
 import styles from './index.module.scss';
 
-import { workspaceSVG } from '../../components/workspace/workspaceSVG';
-import { workspaceJS } from '../../components/workspace/workspace';
+import { workspaceSVG } from '../../components/SVGs/workspace/workspaceSVG';
+import { workspaceJS } from '../../components/SVGs/workspace/workspace';
 
 type Props = {
     isActive: boolean;
