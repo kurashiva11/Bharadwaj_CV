@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 import useSVGOnScreen from "../../hooks/useSVGOnScreen";
 import withMountAnimatedScreen from "../../HOC/withMountAnimatedScreen";
@@ -18,9 +18,9 @@ function Education(props: Props) {
 
     return (
         <div className={styles.education}>
-        <div className={styles["svg_container"]}>
-            <div ref={svgRef} className={styles["svg"]}></div>
-        </div>
+            <div className={styles["svg_container"]}>
+                <div ref={svgRef} className={styles["svg"]}></div>
+            </div>
         </div>
     );
 }

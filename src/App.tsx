@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import $ from "jquery";
 
 import About from "./screens/about";
-import Achievements from "./screens/achievements";
 import Experience from "./screens/experience";
 import Education from './screens/education';
 
@@ -22,10 +21,6 @@ const routes = [
   {
     path: '/education',
     Screen: Education,
-  },
-  {
-    path: "/achievements",
-    Screen: Achievements,
   },
 ];
 

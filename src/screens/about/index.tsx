@@ -9,7 +9,6 @@ type Props = {
 }
 
 function About(props: Props) {
-    console.log(props.isActive);
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const scoreRef = useRef<HTMLCanvasElement>(null);
     const [game, setGame] = useState<any>(null);
