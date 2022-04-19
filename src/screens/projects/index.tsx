@@ -10,7 +10,7 @@ type Props = {
 function Projects(props: Props) {
     return (
         <div className={styles['projects']}>
-            
+            projects
         </div>
     )
 }
