@@ -4,6 +4,7 @@ import $ from "jquery";
 import About from "./screens/about";
 import Experience from "./screens/experience";
 import Education from './screens/education';
+import Projects from './screens/projects';
 
 import './pageScroll.css';
 import usePrevious from "./hooks/usePrevious";
@@ -21,6 +22,10 @@ const routes = [
   {
     path: '/education',
     Screen: Education,
+  },
+  {
+    path: '/projects',
+    Screen: Projects,
   },
 ];
 
