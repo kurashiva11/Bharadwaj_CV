@@ -8,29 +8,29 @@ type Props = {
 
 const projectsData = [
     {
-        title: '1st',
-        describe: 'this is first',
-        uri: 'google.com/'
+        title: 'Notes App',
+        describe: 'An app where you can read, write notes from any device.',
+        uri: 'https://notes-app2.herokuapp.com/'
     },
     {
-        title: '1st',
-        describe: 'this is first',
-        uri: 'google.com/'
+        title: 'College File Sharing System',
+        describe: 'An all in one App where you, your teachers and your collage/school management can share the files with each other.',
+        uri: 'https://file-sharing-system.herokuapp.com/'
     },
     {
-        title: '1st',
-        describe: 'this is first',
-        uri: 'google.com/'
+        title: 'Chess Game',
+        describe: 'A multi Player Game where 2 people can play online',
+        uri: 'https://multiplayer-chess-game.herokuapp.com/'
     },
     {
-        title: '1st',
-        describe: 'this is first',
-        uri: 'google.com/'
+        title: 'Weather Forecast',
+        describe: 'An app that helps farmers by predicting whether',
+        uri: 'https://forecast--weather.herokuapp.com/'
     },
     {
-        title: '1st',
-        describe: 'this is first',
-        uri: 'google.com/'
+        title: 'Sortings Visualization',
+        describe: 'A very simple HTML, css, JS page where you can literally visualize how some basic sorting algorithms work',
+        uri: 'https://kurashiva11.github.io/Sortings-Visualization/'
     },
 ]
 

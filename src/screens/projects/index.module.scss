@@ -9,7 +9,6 @@
 }
 
 
-$offset: 1rem;
 $transitionTime: 0.5s;
 $numberOfProjects: 5;
 
@@ -78,16 +77,14 @@ a {
     overflow: hidden;
     list-style: none;
     margin: 0;
-    padding: 0;
+    gap: 10px;
+    padding: 25px;
     width: 90vw;
     height: 90vh;
 
     li {
+        text-align: center;
         position: relative;
-        transition: box-shadow $transitionTime;
-        &:hover {
-            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-        }
     }
 
     li:hover~li:last-child:after,
@@ -107,8 +104,8 @@ a {
         top: 0;
         left: 0;
         pointer-events: none;
-        clip-path:polygon($offset $offset, $offset calc(100% - #{$offset}), calc(100% - #{$offset}) calc(100% - #{$offset}), calc(100% - #{$offset}) $offset);
-        -webkit-clip-path:polygon($offset $offset, $offset calc(100% - #{$offset}), calc(100% - #{$offset}) calc(100% - #{$offset}), calc(100% - #{$offset}) $offset);
+        clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
         opacity: 0;
         transition: opacity $transitionTime, transform $transitionTime $transitionTime, background $transitionTime;
     }
@@ -127,14 +124,10 @@ a {
     @include colors($numberOfProjects, [ #b3605d, #b5a1b7, #aaafc3, #daa384, #A5D6A7, #6c4331, #555, #a88504 ]);
 }
 
-
-
 @include moveInGrid(3, $numberOfProjects);
 
 @media (max-width: 60em) {
     @include moveInGrid(2, $numberOfProjects);
-
-    $offset: 0;
 }
 
 .description {
@@ -146,7 +139,6 @@ a {
     left: 2rem;
     text-align: center;
     top: 50%;
-    width: 60px;
     margin: auto;
     color: white;
     z-index: 100;
@@ -157,5 +149,10 @@ a {
 
 li:hover .description {
     opacity: 1;
+    transition: .6s .3s;
+}
+
+li:hover .title {
+    opacity: 0;
     transition: .6s .3s;
 }
