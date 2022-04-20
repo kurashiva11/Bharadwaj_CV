@@ -85,6 +85,7 @@ a {
     li {
         text-align: center;
         position: relative;
+        cursor: pointer;
     }
 
     li:hover~li:last-child:after,
