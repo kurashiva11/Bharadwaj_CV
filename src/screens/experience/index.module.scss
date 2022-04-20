@@ -1,6 +1,6 @@
-@use "../../index" as base;
+@use "../../index"as base;
 
-$backgroundColor: black;
+$backgroundColor: #35BEA2;
 
 
 .experience {
@@ -8,6 +8,12 @@ $backgroundColor: black;
     background-color: $backgroundColor;
     height: 100vh;
     display: flex;
+    background: #35BEA2;
+    background-image:
+        linear-gradient(60deg, #227766 25%, #22776600 25.05%, transparent 0),
+        linear-gradient(125deg, transparent 69%, #39C1A500 70%, #39C1A5 75%),
+        linear-gradient(125deg, #2D9D87 45%, #2D9D8700 45.01%, transparent 0),
+        linear-gradient(125deg, #35BEA2 70%, #35BEA200 70.05%, transparent 0);
 }
 
 .center {
@@ -43,31 +49,36 @@ $backgroundColor: black;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
             border-left: 1px solid white;
             border-top-left-radius: 0;
         }
+
         &:nth-child(2) {
             & .content {
                 background: linear-gradient(to left, yellow 0%, rgb(255, 245, 85) 25%, rgb(255, 245, 170) 50%, rgb(255, 245, 250) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
             border-top: 1px solid white;
             border-right: 1px solid white;
         }
+
         &:nth-child(3) {
             & .content {
                 background: linear-gradient(to right, yellow 0%, rgb(255, 245, 85) 25%, rgb(255, 245, 170) 50%, rgb(255, 245, 250) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
             border-top: 1px solid white;
             border-left: 1px solid white;
         }
 
         @for $i from 1 through 3 {
             &:nth-child(#{$i}) {
-                @if $i == 2 {
+                @if $i==2 {
                     &::after {
                         content: '';
                         width: 50px;
@@ -79,7 +90,9 @@ $backgroundColor: black;
                         position: relative;
                         right: -25px;
                     }
-                } @else {
+                }
+
+                @else {
                     &::before {
                         content: '';
                         width: 50px;
@@ -103,8 +116,8 @@ $backgroundColor: black;
 
 .textColorTransformation {
     background: linear-gradient(to right, yellow 0%, rgb(255, 245, 85) 25%, rgb(255, 245, 170) 50%, rgb(255, 245, 250) 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .company--name {
@@ -119,7 +132,8 @@ $backgroundColor: black;
     // }
 }
 
-.designation, .duration {
+.designation,
+.duration {
     font-size: 15px;
     text-transform: capitalize;
     // @extend .textColorTransformation;

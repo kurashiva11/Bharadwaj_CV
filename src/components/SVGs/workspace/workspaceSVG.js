@@ -2,7 +2,7 @@ export const workspaceSVG = `
 <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 1186.4 662.8" style="enable-background:new 0 0 1186.4 662.8;" xml:space="preserve">
     <g id="background">
-      <rect x="-9.7" y="0" fill="black" width="1197.1" height="662.8"/>
+      <rect x="-9.7" y="0" fill="#35BEA2" width="1197.1" height="662.8"/>
     </g>
     <g id="table_legs">
       <g>
@@ -95,13 +95,13 @@ export const workspaceSVG = `
       <g id="lamp-body">
         <g id="lamp-header">
           <g id="lamp-line-t">
-           <polyline style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" points="187.9,333.9 194.8,337.7 70.9,417.1 65.2,411.6 
+           <polyline style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" points="187.9,333.9 194.8,337.7 70.9,417.1 65.2,411.6 
             187.9,333.9   "/>
-          <polyline style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" points="198.6,342.1 205.5,346.9 84.1,425.2 79,419.7 
+          <polyline style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" points="198.6,342.1 205.5,346.9 84.1,425.2 79,419.7 
             198.6,342.1   "/>        
         </g>
           <g id="lamp-head">
-          <ellipse style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" cx="193.8" cy="347.5" rx="18.5" ry="19.3"/>
+          <ellipse style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" cx="193.8" cy="347.5" rx="18.5" ry="19.3"/>
           <path style="fill:#E8DF9A;stroke:#0B0B0B;stroke-miterlimit:10;" d="M225.9,393.2c0,0,13,10.9,26.6,2.5c2.4-1.5,4.4-3.9,5.7-6.6
     c3.3-6.8,7.6-20.6-5-31.8L225.9,393.2z"/>
           <path style="fill:#3FBDA4;stroke:#0B0B0B;stroke-miterlimit:10;" d="M270.5,319.1c-20.6-7.9-47.5-7.3-64.6,4.4
@@ -110,13 +110,13 @@ export const workspaceSVG = `
         </g>
         </g>
         <g id="lamp-line-b">
-          <polyline style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" points="69.7,432.6 74.6,426.3 125.8,567.8 119.5,572.6 69.7,432.6  "/>
-          <polyline style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" points="81.6,429.1 87.5,422.9 138.2,561.8 132,566 81.6,429.1  "/>
+          <polyline style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" points="69.7,432.6 74.6,426.3 125.8,567.8 119.5,572.6 69.7,432.6  "/>
+          <polyline style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" points="81.6,429.1 87.5,422.9 138.2,561.8 132,566 81.6,429.1  "/>
         </g>
         <ellipse id="lamp-circle" style="fill:#3FBDA4;stroke:#0B0B0B;stroke-miterlimit:10;" cx="80.2" cy="422.9" rx="19.7" ry="20.5"/>
       </g>
      
-      <path class="lamp-leg" style="fill:#228370;stroke:#0B0B0B;stroke-miterlimit:10;" d="M193.8,606.2H66.2v-11.6c0-1.6,2.1-2.9,4.7-2.9h121.2
+      <path class="lamp-leg" style="fill:#C0C0C0;stroke:#0B0B0B;stroke-miterlimit:10;" d="M193.8,606.2H66.2v-11.6c0-1.6,2.1-2.9,4.7-2.9h121.2
         c1,0,1.7,0.5,1.7,1.1V606.2z"/>
       <g id="lamp-bottom">
         <path style="fill:#3FBDA4;stroke:#0B0B0B;stroke-miterlimit:10;" d="M81.6,591.6c0,0,10.6-32.8,48.4-31.4c0,0,39,2.3,48.7,31.4
