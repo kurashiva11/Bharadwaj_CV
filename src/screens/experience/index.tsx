@@ -29,7 +29,7 @@ const experianceData = [
         dataYear: '2020',
         workDuration: '2020 May - 2020 July',
         company: 'Virtusa Private Limited.',
-        role: 'Full Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam possimus tempore ad maiores facere fugit sunt eveniet similique, ipsa libero illo reiciendis sint quasi, amet cum esse? Quia, ratione illum!',
+        role: 'Full Stack Developer.',
     },
 ]
 
