@@ -41,7 +41,7 @@ function Projects(props: Props) {
             <ul className={styles["grid"]}>
                 {[...projectsData].map((project) => {
                     return (
-                        <li onClick={()=> window.open(project.uri, "_blank")}>
+                        <li onClick={()=> window.open(project.uri, "_blank")} key={project.title}>
                             <div className={styles["title"]}>{project.title}</div>
                             <span className={styles["description"]}>{project.describe}</span>
                         </li>

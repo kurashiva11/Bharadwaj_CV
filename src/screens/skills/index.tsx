@@ -37,7 +37,7 @@ function Skills(props: Props) {
 
             <div className={styles["area"]} >
                 <ul className={styles["circles"]}>
-                    {Array(15).fill(0).map(() => <li></li>)}
+                    {Array(15).fill(0).map((_, index) => <li key={index}></li>)}
                 </ul>
             </div >
         </div>
