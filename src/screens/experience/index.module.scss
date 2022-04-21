@@ -1,6 +1,6 @@
 @use "../../index"as base;
 
-$backgroundColor: #35BEA2;
+$backgroundColor: #5750d4;
 
 
 .experience {
@@ -8,12 +8,11 @@ $backgroundColor: #35BEA2;
     background-color: $backgroundColor;
     height: 100vh;
     display: flex;
-    background: #35BEA2;
     background-image:
-        linear-gradient(60deg, #227766 25%, #22776600 25.05%, transparent 0),
-        linear-gradient(125deg, transparent 69%, #39C1A500 70%, #39C1A5 75%),
-        linear-gradient(125deg, #2D9D87 45%, #2D9D8700 45.01%, transparent 0),
-        linear-gradient(125deg, #35BEA2 70%, #35BEA200 70.05%, transparent 0);
+        linear-gradient(60deg, #0b039f 25%, #22776600 25.05%, transparent 0),
+        linear-gradient(125deg, transparent 69%, #39C1A500 70%, #0800a7 75%),
+        linear-gradient(125deg, #524dab 45%, #2D9D8700 45.01%, transparent 0),
+        linear-gradient(125deg, #5750d4 70%, #35BEA200 70.05%, transparent 0);
 }
 
 .center {

@@ -2,7 +2,7 @@ export const workspaceSVG = `
 <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 1186.4 662.8" style="enable-background:new 0 0 1186.4 662.8;" xml:space="preserve">
     <g id="background">
-      <rect x="-9.7" y="0" fill="#35BEA2" width="1197.1" height="662.8"/>
+      <rect x="-9.7" y="0" fill="#5750d4" width="1197.1" height="662.8"/>
     </g>
     <g id="table_legs">
       <g>
