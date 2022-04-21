@@ -1,3 +1,16 @@
+.skills--container {
+    display: flex;
+}
+
+.svg_container {
+    width: 40vw;
+}
+
+.container {
+    width: 60vw;
+}
+
+
 @keyframes gradient {
     0% {
         background-position: 0% 0%;
@@ -27,6 +40,13 @@
     top: 0;
     z-index: 0;
     left: 0;
+}
+
+.svg_container {}
+
+.svg {
+    width: 40vw;
+    z-index: 100;
 }
 
 .container {

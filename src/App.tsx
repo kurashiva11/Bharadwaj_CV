@@ -29,10 +29,6 @@ const routes = [
     path: '/skills',
     Screen: Skills,
   },
-  {
-    path: '/education',
-    Screen: Education,
-  },
 ];
 
 const isFirefox = /Firefox/i.test(navigator.userAgent);

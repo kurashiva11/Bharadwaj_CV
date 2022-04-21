@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './index.module.scss';
 
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
+import useSVGOnScreen from "../../hooks/useSVGOnScreen";
+
+import { educationJS } from "../../components/SVGs/education/education";
+import { educationSVG } from "../../components/SVGs/education/educationSVG";
 
 import TagCloudJS from './TagCloug';
 
@@ -18,6 +22,10 @@ const technicalSkills = [
 ];
 
 function Skills(props: Props) {
+    const svgRef = useRef<HTMLDivElement>(null);
+
+    useSVGOnScreen(props.isActive, educationSVG, educationJS, svgRef);
+
 
     useEffect(() => {
         TagCloudJS("." + styles['Sphere'], technicalSkills, {
@@ -31,8 +39,15 @@ function Skills(props: Props) {
 
     return (
         <div className={styles['skills']}>
-            <div className={styles["container"]}>
-                <span className={styles["Sphere"]}></span>
+
+            <div className={styles["skills--container"]}>
+                <div className={styles["svg_container"]}>
+                    <div ref={svgRef} className={styles["svg"]}></div>
+                </div>
+
+                <div className={styles["container"]}>
+                    <span className={styles["Sphere"]}></span>
+                </div>
             </div>
 
             <div className={styles["area"]} >
