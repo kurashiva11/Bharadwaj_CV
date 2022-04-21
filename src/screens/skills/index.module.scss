@@ -2,25 +2,22 @@
     0% {
         background-position: 0% 0%;
     }
-    33% {
-        background-position: 33% 33%;
-    }
-    66% {
-        background-position: 66% 66%;
+    50% {
+        background-position: 50% 0%;
     }
     100% {
-        background-position: 100% 100%;
+        background-position: 0% 50%;
     }
 }
 
 
 .skills {
-    background-color: green;
+    background-color: rgb(0, 31, 110);
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #0900b2, #2f28ac, #5a56a1, #908da6);
 	background-size: 400% 400%;
-	animation: gradient 10s ease-in-out infinite alternate;
+	animation: gradient 7s ease-in-out infinite alternate;
 }
 
 .area{
@@ -46,6 +43,7 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
+    font-family: 'Rock Salt', cursive;
 }
 
 .Sphere > * {
