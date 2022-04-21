@@ -8,7 +8,14 @@ type Props = {
 
 function Skills(props: Props) {
     return (
-        <div className={styles['skills']}>skills</div>
+        <div className={styles['skills']}>
+            skills
+            <div className={styles["area"]} >
+                <ul className={styles["circles"]}>
+                    {Array(15).fill(0).map(() => <li></li>)}
+                </ul>
+            </div >
+        </div>
     )
 }
 
