@@ -1,9 +1,9 @@
-import {useRef} from 'react';
+import { useRef, useEffect } from 'react';
 
 import useSVGOnScreen from '../../hooks/useSVGOnScreen';
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 
-import styles from './index.module.scss';
+import './index.css';
 
 import { workspaceSVG } from '../../components/SVGs/workspace/workspaceSVG';
 import { workspaceJS } from '../../components/SVGs/workspace/workspace';
@@ -12,52 +12,82 @@ type Props = {
     isActive: boolean;
 }
 
+const experianceData = [
+    {
+        dataYear: '2022',
+        workDuration: '2022 May - Present',
+        company: 'Microsoft Corporation.',
+        role: 'Software Engineer',
+    },
+    {
+        dataYear: '2021',
+        workDuration: '2021 April - 2022 May',
+        company: 'IBI Group Inc.',
+        role: 'Software Developer',
+    },
+    {
+        dataYear: '2020',
+        workDuration: '2020 May - 2020 July',
+        company: 'Virtusa Private Limited.',
+        role: 'Full Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam possimus tempore ad maiores facere fugit sunt eveniet similique, ipsa libero illo reiciendis sint quasi, amet cum esse? Quia, ratione illum!',
+    },
+]
+
 function Experience(props: Props) {
     const svgRef = useRef<HTMLDivElement>(null);
 
     useSVGOnScreen(props.isActive, workspaceSVG, workspaceJS, svgRef);
 
+    useEffect(() => {
+        // @ts-ignore
+        new Swiper(".timeline .swiper-container", {
+            direction: "vertical",
+            loop: false,
+            speed: 1600,
+            pagination: ".swiper-pagination",
+            paginationBulletRender: function (swiper: any, index: number, className: string) {
+                console.log('className =', className);
+                var year = document
+                    .querySelectorAll(".swiper-slide")
+                [index].getAttribute("data-year");
+                return '<span class="' + className + '">' + year + "</span>";
+            },
+            paginationClickable: true,
+            nextButton: ".swiper-button-next",
+            prevButton: ".swiper-button-prev",
+            breakpoints: {
+                768: {
+                    direction: "horizontal",
+                },
+            },
+        });
+    }, []);
+
     return (
-        <div className={styles.experience}>
-            <div className={styles["details"]}>
-                <div className="details_container">
-                    <div className={styles["details--box"]}>
-                        <div className={styles["content"]}>
-                            <div className={styles["company--name"]}>
-                                <a href="https://www.microsoft.com/en-in" target="_blank" rel="noreferrer noopener">Microsoft</a>
+        <div className="experience">
+            <div className="timeline">
+                <div className="swiper-container">
+                    <div className="swiper-wrapper">
+                        {[...experianceData].map((exp) => (
+                            <div className="swiper-slide" data-year={exp.dataYear}>
+                                <div className="swiper-slide-content">
+                                    <span className="timeline-year">{exp.workDuration}</span>
+                                    <h4 className="timeline-title">{exp.company}</h4>
+                                    <p className="timeline-text">
+                                        {exp.role}
+                                    </p>
+                                </div>
                             </div>
-                            <div className={styles["designation"]}>Software Engineer</div>
-                            <div className={styles["duration"]}>
-                                May 2022 - Present
-                            </div>
-                        </div>
+                        ))}
                     </div>
-                </div>
-                <div className={styles["details--box"]}>
-                    <div className={styles["content"]}>
-                        <div className={styles["company--name"]}>
-                            <a href="https://www.ibigroup.com/" target="_blank" rel="noreferrer noopener">IBI group</a>
-                        </div>
-                        <div className={styles["designation"]}>Software Developer</div>
-                        <div className={styles["duration"]}>
-                            April 2021 - May 2022
-                        </div>
-                    </div>
-                </div>
-                <div className={styles["details--box"]}>
-                    <div className={styles["content"]}>
-                        <div className={styles["company--name"]}>
-                            <a href="https://www.virtusa.com/" target="_blank" rel="noreferrer noopener">Virtusa</a>
-                        </div>
-                        <div className={styles["designation"]}>Full Stack Developer Intern</div>
-                        <div className={styles["duration"]}>
-                            MAY 2020 ‐ JULY 2020
-                        </div>
-                    </div>
+                    <div className="swiper-button-prev"></div>
+                    <div className="swiper-button-next"></div>
+                    <div className="swiper-pagination"></div>
                 </div>
             </div>
-            <div className={styles["gif--container"]}>
-                <div ref={svgRef} className={styles["animated_svg"]}></div>
+
+            <div className={"gif--container"}>
+                <div ref={svgRef} className={"animated_svg"}></div>
             </div>
         </div>
     )
