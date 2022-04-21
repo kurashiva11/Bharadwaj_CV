@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import $ from "jquery";
 
 import About from "./screens/about";
@@ -35,21 +35,30 @@ const routes = [
   },
 ];
 
+const isFirefox = /Firefox/i.test(navigator.userAgent);
+const isIe =
+  /MSIE/i.test(navigator.userAgent) ||
+  /Trident.*rv\:11\./i.test(navigator.userAgent);
+const scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive)
+const slideDurationSetting = 600; //Amount of time for which slide is "locked"
+
 function App() {
   const [currentSlideNumber, setCurrentSlideNumber] = useState<number>(0);
   const prevSlideNumber = usePrevious(currentSlideNumber);
+  const totalSlideNumber = useRef<number>(0);
+
+  const moveUpByOnePage = () => {
+    setCurrentSlideNumber(prev => prev > 0 ? prev - 1 : prev);
+  }
+
+  const moveDownByOnePage = () => {
+    setCurrentSlideNumber(prev => prev + 1 < totalSlideNumber.current ? prev + 1 : prev);
+  }
 
   useEffect(() => {
     // For Screen Animations
     var ticking = false;
-    const isFirefox = /Firefox/i.test(navigator.userAgent);
-    const isIe =
-      /MSIE/i.test(navigator.userAgent) ||
-      /Trident.*rv\:11\./i.test(navigator.userAgent);
-    const scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive)
-    const slideDurationSetting = 600; //Amount of time for which slide is "locked"
-    const totalSlideNumber = $(".screen").length;
-
+    totalSlideNumber.current = $(".screen").length;
     // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
     function parallaxScroll(evt: any) {
       //Set delta for all other browsers
@@ -65,13 +74,13 @@ function App() {
         if (delta <= -scrollSensitivitySetting) {
           //Down scroll
           ticking = true;
-          setCurrentSlideNumber(prev => prev < totalSlideNumber - 1 ? prev + 1 : prev);
+          moveDownByOnePage();
           slideDurationTimeout(slideDurationSetting);
         }
         if (delta >= scrollSensitivitySetting) {
           //Up scroll
           ticking = true;
-          setCurrentSlideNumber(prev => prev > 0 ? prev - 1 : prev);
+          moveUpByOnePage();
           slideDurationTimeout(slideDurationSetting);
         }
       }
