@@ -1,11 +1,10 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import $ from "jquery";
 
 import About from "./screens/about";
 import Experience from "./screens/experience";
 import Projects from './screens/projects';
 import Skills from "./screens/skills";
-import Education from './screens/education';
 
 import './pageScroll.css';
 import usePrevious from "./hooks/usePrevious";
