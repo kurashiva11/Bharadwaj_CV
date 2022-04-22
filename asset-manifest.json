@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/Bharadwaj_CV/static/css/main.e1cb1fa3.css",
-    "main.js": "/Bharadwaj_CV/static/js/main.f596782e.js",
-    "static/media/earth.png": "/Bharadwaj_CV/static/media/earth.38225ed231b802209d97.png",
+    "main.css": "/Bharadwaj_CV/static/css/main.f898eb9a.css",
+    "main.js": "/Bharadwaj_CV/static/js/main.6998656e.js",
     "static/media/KuraBharadwaj_Resume.pdf": "/Bharadwaj_CV/static/media/KuraBharadwaj_Resume.16c11eda85c09d82a0c6.pdf",
-    "static/media/asteroid.png": "/Bharadwaj_CV/static/media/asteroid.3cba544bc37c80d1ec6c.png",
-    "static/media/galaxyImage.jpeg": "/Bharadwaj_CV/static/media/galaxyImage.d42a16715fef3c2a7a1a.jpeg",
+    "static/media/role.svg": "/Bharadwaj_CV/static/media/role.7ae3a7e5fc4bec2fd243f55456e9024b.svg",
+    "static/media/name.svg": "/Bharadwaj_CV/static/media/name.7c12ef7c50ca30a5b96a3043f3988ebf.svg",
     "index.html": "/Bharadwaj_CV/index.html",
-    "main.e1cb1fa3.css.map": "/Bharadwaj_CV/static/css/main.e1cb1fa3.css.map",
-    "main.f596782e.js.map": "/Bharadwaj_CV/static/js/main.f596782e.js.map"
+    "main.f898eb9a.css.map": "/Bharadwaj_CV/static/css/main.f898eb9a.css.map",
+    "main.6998656e.js.map": "/Bharadwaj_CV/static/js/main.6998656e.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1cb1fa3.css",
-    "static/js/main.f596782e.js"
+    "static/css/main.f898eb9a.css",
+    "static/js/main.6998656e.js"
   ]
 }
