@@ -1,103 +1,36 @@
-import { useState, useEffect, useRef } from 'react';
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 import styles from './about.module.scss';
 
-import Game from './game';
+import {ReactComponent as NameSVG} from '../../components/SVGs/name.svg';
+import {ReactComponent as RoleSVG} from '../../components/SVGs/role.svg';
 
 type Props = {
     isActive: boolean;
 }
 
 function About(props: Props) {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const scoreRef = useRef<HTMLCanvasElement>(null);
-    const [game, setGame] = useState<any>(null);
-    const [playing, setPlaying] = useState<boolean>(false);
-
-    const showGameTextOnCanvas = () => {
-        const ctx = canvasRef.current?.getContext('2d');
-        if (ctx) {
-            ctx.font = "30px Arial";
-            ctx.fillStyle = "white";
-            ctx.fillText(game ? "Resume Game?" : "Play Game?", ctx.canvas.width/2 - 50, ctx.canvas.height/2);
-        }
-    }
-
-    const setPlayingGame = (p: boolean) => {
-        setPlaying(p);
-        if (!p) {
-            showGameTextOnCanvas();
-        }
-    }
-
-    const gameOver = () => {
-        setGame(null)
-        setPlayingGame(false);
-    }
-
-    const startGame = () => {
-        // if game is already started.
-        if (game) {
-            setPlayingGame(true);
-            game.startGame();
-            return;
-        }
-        const asteroid = new Image();
-        asteroid.src = require('../../assets/asteroid.png');
-        const planet = new Image();
-        planet.src = require('../../assets/earth.png');
-        asteroid.onload = () => {
-            var ctx = canvasRef.current?.getContext("2d");
-            planet.onload = () => {
-                if (ctx && scoreRef.current) {
-                    setPlayingGame(true);
-                    scoreRef.current.textContent = '0';
-                    const g = new Game(ctx, scoreRef.current, asteroid, planet, gameOver);
-                    setGame(g);
-                }
-            }
-        }
-    }
-
-    const pauseGame = () => {
-        game?.pauseGame();
-        setPlayingGame(false);
-    }
-
-    useEffect(() => {
-        // @ts-ignore
-        canvasRef.current && (canvasRef.current.width = canvasRef.current?.parentNode?.clientWidth);
-        // @ts-ignore
-        canvasRef.current && (canvasRef.current.height = canvasRef.current?.parentNode?.clientHeight);
-
-        showGameTextOnCanvas();
-    }, []);
-
-    useEffect(() => {
-        !props.isActive && pauseGame();
-    }, [props.isActive]);
-
     return (
         <div className={styles.about} id="About">
-            <div className={styles["game_container"]}>
-                <div className={styles["canvas--container"]}>
-                    {/* game */}
-                    <canvas ref={canvasRef} onClick={playing ? undefined : startGame}>
-                        Your browser does not support the HTML canvas tag.
-                    </canvas>
-                </div>
-                {playing && (
-                    <div className={styles["pause--game"]} onClick={pauseGame}>
-                        <p>PAUSE GAME.</p>
-                    </div>
-                )}
-            </div>
-            <div className={styles["score"]}>score: <span ref={scoreRef}>0</span></div>
             <div className={styles.introduction}>
                 <div className={styles["introduction--container"]}>
-                    <div className={styles["introduction-name"]}>Bharadwaj Kura.</div>
-                    <div className={styles["introduction-resignation"]}>Software Engineer.</div>
+                    <div className={styles["introduction-name"]}><NameSVG /></div>
+                    <div className={styles["introduction-designation"]}><RoleSVG /></div>
                 </div>
+            </div>
+
+            <div className={styles["bg-waves"]}>
+                <svg className={styles["waves"]} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g className={styles["parallax"]}>
+                        <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(0,0,255,0.7" />
+                        <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(0,0,255,0.5)" />
+                        <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(0,0,255,0.3)" />
+                        <use xlinkHref="#gentle-wave" x="48" y="7" fill="#00f" />
+                    </g>
+                </svg>
             </div>
         </div>
     );

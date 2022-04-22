@@ -1,11 +1,26 @@
 @use "../../index" as base;
 
 .about {
-    background: url('../../assets/galaxyImage.jpeg') no-repeat center center fixed;
+    background: green;
     background-size: cover;
     height: 100vh;
     width: 100vw;
     display: flex;
+}
+
+@keyframes add-stroke {
+    to {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes fill-svg {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: black;
+    }
 }
 
 .introduction {
@@ -17,13 +32,10 @@
     justify-items: center;
     justify-content: center;
     font-family: base.$styledFontFamily;
-    color: blue;
 
     @extend .unselecteable;
 
     &--container {
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(3px);
         background-color: rbga(7, 71, 100, 0.9);
         padding: 20px;
         z-index: 13;
@@ -31,42 +43,85 @@
 
     &-name {
         font-size: base.$largeFontSize;
+
+        & svg {
+            width: #{13 * 5}vw;
+            height: 5vw;
+        }
+
+        &:first-child {
+            fill: transparent;
+            animation: fill-svg 0.5s ease forwards 4.5s;
+        }
+
+        @for $i from 1 through 13 {
+            & path:nth-child(#{$i}) {
+                stroke-dasharray: 400px;
+                stroke-dashoffset: 400px;
+                animation: add-stroke 3s ease forwards #{($i*3)/10}s;
+            }
+        }
     }
-    &-resignation {
+
+    &-designation {
         font-size: base.$fontSize;
+
+        & svg {
+            width: #{13 * 3}vw;
+            height: 3vw;
+        }
+
+        @for $i from 1 through 16 {
+            & path:nth-child(#{$i}) {
+                stroke-dasharray: 466px;
+                stroke-dashoffset: 466px;
+                animation: add-stroke 2s ease forwards #{4 + ($i*3)/10}s;
+            }
+        }
     }
 }
 
-.game_container {
-    flex: 5;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 100%
-}
-
-.canvas--container {
-    width: 100%;
-    height: 100%;
-}
-
-.score {
-    color: white;
+.waves {
     position: absolute;
-    bottom: 20px;
-    left: 10px;
-    @extend .unselecteable;
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+    left: 0;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
 }
 
-.pause--game {
-    color: 'white';
-    position: absolute;
-    bottom: 20px;
-    left: 25%;
+.parallax {
+    & > use {
+        animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 
-    cursor: pointer;
-    @extend .unselecteable;
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: -#{$i + 1}s;
+                animation-duration: #{4 + $i * 3}s;
+            }
+        }
+    }
+}
 
-    & > p {
-        color: white;
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+    .content {
+        height: 30vh;
+    }
+
+    h1 {
+        font-size: 24px;
     }
 }

@@ -15,7 +15,8 @@ root.render(
 );
 
 /** TODO:
- * 3. show starfield till the page loads (https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH&index=1).
+ * 2. change about page
+ * 3. show loader till the page loads.
  * 4. show current page index similar to microsoft by numbers, but from top to bottom.
  * 5. fix css to work even with mobile.
  */
