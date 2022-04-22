@@ -1,8 +1,8 @@
 import withMountAnimatedScreen from '../../HOC/withMountAnimatedScreen';
 import styles from './about.module.scss';
 
-import {ReactComponent as NameSVG} from '../../components/SVGs/name.svg';
-import {ReactComponent as RoleSVG} from '../../components/SVGs/role.svg';
+import { ReactComponent as NameSVG } from '../../components/SVGs/name.svg';
+import { ReactComponent as RoleSVG } from '../../components/SVGs/role.svg';
 
 type Props = {
     isActive: boolean;
@@ -16,6 +16,23 @@ function About(props: Props) {
                     <div className={styles["introduction-name"]}><NameSVG /></div>
                     <div className={styles["introduction-designation"]}><RoleSVG /></div>
                 </div>
+            </div>
+
+            <div className={styles["jelly-container"]}>
+                {Array(10).fill(0).map((_, index)=> <div className={styles['bubble-' + (index+1)]} key={index}></div>)}
+                <div className={styles["jelly-wrapper"]}>
+                    <div className={styles["jelly-hair"]}></div>
+                    <div className={styles["jelly-body"]}>
+                        <div className={styles["jelly-inner"]}>
+                            <div className={styles["jelly-eyes"]}></div>
+                            <div className={styles["jelly-mouth"]}></div>
+                            <div className={styles["jelly-hands"]}></div>
+                        </div>
+                    </div>
+                    {Array(5).fill(0).map((_, index)=> <div className={[styles['jelly-tentacle-' + (index+1)], styles['jelly-tentacle']].join(' ')} key={index}></div>)}
+                </div>
+                <div className={styles["jelly-shadow"]}></div>
+                {Array(10).fill(0).map((_, index)=> <div className={[styles['bubble-' + (index+10+1)], styles['bubble']].join(' ')} key={index}></div>)}
             </div>
 
             <div className={styles["bg-waves"]}>
