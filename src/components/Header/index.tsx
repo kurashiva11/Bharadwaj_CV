@@ -6,6 +6,7 @@ const linkedin = require('../../assets/linkedin-icon.png');
 const github = require('../../assets/github-icon.png');
 const leetcode = require('../../assets/leetcode-icon.png');
 const hackerrank = require('../../assets/hackerrank-icon.png');
+const mail = require('../../assets/mail-icon.png');
 
 // import resume.
 const resume = require('../../assets/KuraBharadwaj_Resume.pdf')
@@ -53,6 +54,7 @@ function Header(props: Props) {
                         <span className={styles["profile"]} onClick={() => window.open('https://github.com/kurashiva11', '_blank')}><img src={github} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://leetcode.com/kurashiva/', '_blank')}><img src={leetcode} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://www.hackerrank.com/kura_shiva', '_blank')}><img src={hackerrank} alt="." /></span>
+                        <span className={styles["profile"]} onClick={() => window.open('mailto:kurashiva11@gmail.com', '_blank')}><img src={mail} alt="." /></span>
 
                         <span className={styles["download--gif"]} onClick={() => window.open(resume, '_blank')}></span>
                     </div>
