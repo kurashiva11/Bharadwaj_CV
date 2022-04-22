@@ -39,6 +39,7 @@ function Header(props: Props) {
                         <span className={[styles["bar"], styles["bar2"]].join(' ')}></span>
                         <input type="checkbox" onClick={menuPressHandler}/>
                     </div>
+
                     <div ref={menuRef} className={styles["menu"]}>
                         <ul>
                             <li><a href="#About">About</a></li>

@@ -3,7 +3,7 @@
 .topOfScreen {
     position: fixed;
     background: transparent;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .showBorder {
@@ -86,7 +86,6 @@ $hamBurgerHeight: 30px;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    z-index: 99999;
     padding: 50px;
     padding-top: 125px;
 
@@ -134,7 +133,7 @@ $hamBurgerHeight: 30px;
 
 $profileIconSize: 35px;
 $gifWidth: 3px;
-$gifColor: black;
+$gifColor: white;
 
 @keyframes move-up-down {
     0% {
@@ -150,6 +149,7 @@ $gifColor: black;
     flex-direction: column;
     height: 100vh;
     right: 15px;
+    z-index: 98;
     @extend .topOfScreen;
     @extend .center;
 
