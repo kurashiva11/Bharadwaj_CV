@@ -106,11 +106,11 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header> */}
+      <Header>
         {routes.map((route, index) => (
           <route.Screen key={route.path} isActive={index === currentSlideNumber} />
         ))}
-      {/* </Header> */}
+      </Header>
     </div>
   );
 }
