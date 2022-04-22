@@ -145,7 +145,7 @@ a {
     }
 
     //colors (optional)
-    @include colors($numberOfProjects, [ #b3605d, #b5a1b7, #aaafc3, #daa384, #A5D6A7, #6c4331, #555, #a88504 ]);
+    @include colors($numberOfProjects, [ #d9e826, #45abba, #bf4040, #cc00ff, #00ffff, #1c82ab, #80b280, #fff ]);
 }
 
 @include moveInGrid(3, $numberOfProjects);
