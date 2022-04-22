@@ -1,6 +1,13 @@
 import { ReactChildren, useRef } from 'react';
 import styles from './index.module.scss';
 
+// importing icons.
+const linkedin = require('../../assets/linkedin-icon.png');
+const github = require('../../assets/github-icon.png');
+const leetcode = require('../../assets/leetcode-icon.png');
+const hackerrank = require('../../assets/hackerrank-icon.png');
+const downloadGif = require('../../assets/download.gif');
+
 type Props = {
     children: ReactChildren | JSX.Element[];
 }
@@ -14,11 +21,16 @@ function Header(props: Props) {
         menuRef.current?.classList.toggle(styles['menu-show']);
     }
 
+    const profilePressHandler = (profile: string) => {
+        console.log(profile);
+    }
+
     return (
         <div className={styles['header']}>
             <div className={styles["container"]}>
                 <div className={styles["top-navbar"]}>
                     <div className={styles["resume"]} onClick={() => window.location.reload()}>Bharadwaj Kura</div>
+
                     <div ref={hamBurgerRef} className={styles["hamburger-icon"]}>
                         <span className={[styles["bar"],styles["bar1"]].join(' ')}></span>
                         <span className={[styles["bar"], styles["bar2"]].join(' ')}></span>
@@ -32,6 +44,15 @@ function Header(props: Props) {
                             <li><a href="#Projects">Projects</a></li>
                             <li><a href="#Skills">Skills</a></li>
                         </ul>
+                    </div>
+
+                    <div className={styles["profiles"]}>
+                        <span className={styles["profile"]} onClick={() => window.open('https://www.linkedin.com/in/bharadwaj-kura-36828b18a/', '_blank')}><img src={linkedin} alt="." /></span>
+                        <span className={styles["profile"]} onClick={() => window.open('https://github.com/kurashiva11', '_blank')}><img src={github} alt="." /></span>
+                        <span className={styles["profile"]} onClick={() => window.open('https://leetcode.com/kurashiva/', '_blank')}><img src={leetcode} alt="." /></span>
+                        <span className={styles["profile"]} onClick={() => window.open('https://www.hackerrank.com/kura_shiva', '_blank')}><img src={hackerrank} alt="." /></span>
+                        {/* <span className={styles["download--gif"]} onClick={() => console.log('download gif')}><img src={downloadGif} alt="." /></span> */}
+                        <span className={styles["download--gif"]} onClick={() => console.log('download gif')}></span>
                     </div>
                 </div>
             </div>

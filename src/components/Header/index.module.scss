@@ -86,7 +86,7 @@ $hamBurgerHeight: 30px;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    z-index: 100;
+    z-index: 99999;
     padding: 50px;
     padding-top: 125px;
 
@@ -130,4 +130,75 @@ $hamBurgerHeight: 30px;
  */
 .menu-show {
     transform: none;
+}
+
+$profileIconSize: 35px;
+$gifWidth: 3px;
+$gifColor: black;
+
+@keyframes move-up-down {
+    0% {
+        transform: rotate(45deg) translate(0px, 0px);
+    }
+    100% {
+        transform: rotate(45deg) translate(-15px, -15px);
+    }
+}
+
+.profiles {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    right: 15px;
+    @extend .topOfScreen;
+    @extend .center;
+
+    & > .profile {
+        margin-bottom: 15px;
+        @extend .unselecteable;
+        
+        & img {
+            transition: all 0.5s ease;
+            width: $profileIconSize;
+            height: $profileIconSize;
+            cursor: pointer;
+            @extend .unselecteable;
+
+            &:hover {
+                width: $profileIconSize + 10px;
+                height: $profileIconSize + 10px;
+            }
+        }
+    }
+
+    & .download--gif {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 20px;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 20px;
+            font-size: 20px;
+            height: 20px;
+            border-right: $gifWidth solid $gifColor;
+            border-bottom: $gifWidth solid $gifColor;
+            animation: move-up-down 0.5s ease 0s infinite alternate;
+        }
+        &:after {
+            content: '';
+            background: transparent;
+            display: block;
+            position: relative;
+            width: 100%;
+            right: 3px;
+            border-bottom: $gifWidth solid $gifColor;
+        }
+    }
 }
