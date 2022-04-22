@@ -68,8 +68,8 @@ function Experience(props: Props) {
             <div className="timeline">
                 <div className="swiper-container">
                     <div className="swiper-wrapper">
-                        {[...experianceData].map((exp) => (
-                            <div className="swiper-slide" data-year={exp.dataYear}>
+                        {[...experianceData].map((exp: any, index: number) => (
+                            <div className="swiper-slide" data-year={exp.dataYear} key={index}>
                                 <div className="swiper-slide-content">
                                     <span className="timeline-year">{exp.workDuration}</span>
                                     <h4 className="timeline-title">{exp.company}</h4>
