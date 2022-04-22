@@ -64,7 +64,7 @@ function Experience(props: Props) {
     }, []);
 
     return (
-        <div className="experience">
+        <div className="experience" id="Experience">
             <div className="timeline">
                 <div className="swiper-container">
                     <div className="swiper-wrapper">

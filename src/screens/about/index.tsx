@@ -78,7 +78,7 @@ function About(props: Props) {
     }, [props.isActive]);
 
     return (
-        <div className={styles.about}>
+        <div className={styles.about} id="About">
             <div className={styles["game_container"]}>
                 <div className={styles["canvas--container"]}>
                     {/* game */}

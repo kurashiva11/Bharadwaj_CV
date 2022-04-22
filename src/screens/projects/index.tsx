@@ -37,7 +37,7 @@ const projectsData = [
 
 function Projects(props: Props) {
     return (
-        <div className={styles['projects']}>
+        <div className={styles['projects']} id="Projects">
             <ul className={styles["grid"]}>
                 {[...projectsData].map((project) => {
                     return (

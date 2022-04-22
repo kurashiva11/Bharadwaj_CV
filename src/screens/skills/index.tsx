@@ -38,7 +38,7 @@ function Skills(props: Props) {
     }, []);
 
     return (
-        <div className={styles['skills']}>
+        <div className={styles['skills']} id="Skills">
 
             <div className={styles["skills--container"]}>
                 <div className={styles["svg_container"]}>

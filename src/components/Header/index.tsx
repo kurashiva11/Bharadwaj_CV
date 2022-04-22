@@ -10,7 +10,6 @@ function Header(props: Props) {
     const menuRef = useRef<HTMLDivElement>(null);
 
     const menuPressHandler = () => {
-        // e.target.classList.toggle(styles['hamberger-open']);
         hamBurgerRef.current?.classList.toggle(styles['hamberger-open']);
         menuRef.current?.classList.toggle(styles['menu-show']);
     }
@@ -28,10 +27,10 @@ function Header(props: Props) {
                     </div>
                     <div ref={menuRef} className={styles["menu"]}>
                         <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Experience</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Skills</a></li>
+                            <li><a href="#About">About</a></li>
+                            <li><a href="#Experience">Experience</a></li>
+                            <li><a href="#Projects">Projects</a></li>
+                            <li><a href="#Skills">Skills</a></li>
                         </ul>
                     </div>
                 </div>
