@@ -6,7 +6,9 @@ const linkedin = require('../../assets/linkedin-icon.png');
 const github = require('../../assets/github-icon.png');
 const leetcode = require('../../assets/leetcode-icon.png');
 const hackerrank = require('../../assets/hackerrank-icon.png');
-const downloadGif = require('../../assets/download.gif');
+
+// import resume.
+const resume = require('../../assets/KuraBharadwaj_Resume.pdf')
 
 type Props = {
     children: ReactChildren | JSX.Element[];
@@ -51,8 +53,8 @@ function Header(props: Props) {
                         <span className={styles["profile"]} onClick={() => window.open('https://github.com/kurashiva11', '_blank')}><img src={github} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://leetcode.com/kurashiva/', '_blank')}><img src={leetcode} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://www.hackerrank.com/kura_shiva', '_blank')}><img src={hackerrank} alt="." /></span>
-                        {/* <span className={styles["download--gif"]} onClick={() => console.log('download gif')}><img src={downloadGif} alt="." /></span> */}
-                        <span className={styles["download--gif"]} onClick={() => console.log('download gif')}></span>
+
+                        <span className={styles["download--gif"]} onClick={() => window.open(resume, '_blank')}></span>
                     </div>
                 </div>
             </div>
