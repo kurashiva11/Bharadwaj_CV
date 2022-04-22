@@ -12,6 +12,7 @@ const resume = require('../../assets/KuraBharadwaj_Resume.pdf')
 
 type Props = {
     children: ReactChildren | JSX.Element[];
+    currentScreen: any;
 }
 
 function Header(props: Props) {
@@ -23,16 +24,14 @@ function Header(props: Props) {
         menuRef.current?.classList.toggle(styles['menu-show']);
     }
 
-    const profilePressHandler = (profile: string) => {
-        console.log(profile);
-    }
-
     return (
         <div className={styles['header']}>
             <div className={styles["container"]}>
                 <div className={styles["top-navbar"]}>
-                    <div className={styles["resume"]} onClick={() => window.location.reload()}>Bharadwaj Kura</div>
-
+                    <div className={styles["name--container"]}>
+                        <div className={styles["name"]} onClick={() => window.location.reload()}>Bharadwaj Kura</div>
+                        <div className={styles["page--name"]}>{props.currentScreen.path}</div>
+                    </div>
                     <div ref={hamBurgerRef} className={styles["hamburger-icon"]}>
                         <span className={[styles["bar"],styles["bar1"]].join(' ')}></span>
                         <span className={[styles["bar"], styles["bar2"]].join(' ')}></span>

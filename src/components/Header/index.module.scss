@@ -24,8 +24,8 @@
     @extend .topOfScreen;
 }
 
-.resume {
-    top: 10px;
+.name {
+    top: 5px;
     left: 10px;
     cursor: pointer;
     font-size: 30px;
@@ -201,4 +201,22 @@ $gifColor: white;
             border-bottom: $gifWidth solid $gifColor;
         }
     }
+}
+
+.name--container {
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    @extend .center;
+
+}
+
+.page--name {
+    text-transform: uppercase;
+    font-size: 25px;
+    top: 20px;
+    color: red;
+    text-decoration: underline;
+    @extend .topOfScreen;
+    @extend .unselecteable;
 }

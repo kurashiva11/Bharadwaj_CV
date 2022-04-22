@@ -13,19 +13,19 @@ import Header from "./components/Header";
 // can add upto 10 screens if require to add more screens then add nth-child css at public/index.css file.
 const routes = [
   {
-    path: "/",
+    path: "",
     Screen: About,
   },
   {
-    path: "/experience",
+    path: "experience",
     Screen: Experience,
   },
   {
-    path: '/projects',
+    path: 'projects',
     Screen: Projects,
   },
   {
-    path: '/skills',
+    path: 'skills',
     Screen: Skills,
   },
 ];
@@ -106,7 +106,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header>
+      <Header currentScreen={routes[currentSlideNumber]}>
         {routes.map((route, index) => (
           <route.Screen key={route.path} isActive={index === currentSlideNumber} />
         ))}
