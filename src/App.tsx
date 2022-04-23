@@ -14,18 +14,22 @@ import Header from "./components/Header";
 const routes = [
   {
     path: '',
+    hashURL: '#About',
     Screen: About,
   },
   {
     path: 'experience',
+    hashURL: '#Experience',
     Screen: Experience,
   },
   {
     path: 'projects',
+    hashURL: '#Projects',
     Screen: Projects,
   },
   {
     path: 'skills',
+    hashURL: '#Skills',
     Screen: Skills,
   },
 ];
@@ -52,6 +56,7 @@ function App() {
 
   const slidePageTo = (pagePath: string) => {
     const targetPageIndex = routes.findIndex((ele) => ele.path === pagePath);
+    if (targetPageIndex === -1) return;
     const targetSlideNumber = targetPageIndex - currentSlideNumber;
     for (let i = 0; i < Math.abs(targetSlideNumber); i++) {
       setTimeout(targetSlideNumber > 0 ? moveDownByOnePage : moveUpByOnePage, 250 * (i + 1));
@@ -99,6 +104,11 @@ function App() {
     // ------------- ADD EVENT LISTENER ------------- //
     const mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
     window.addEventListener(mousewheelEvent, parallaxScroll, false);
+
+    // ------------- MOVE PAGE TO PATH IN THE URL ------------- //
+    const loc = window.location.href.split('#');
+    const pagePath = loc.length > 1 ? loc[1].toLowerCase() : 'about';
+    slidePageTo(pagePath);
   }, []);
 
   useEffect(() => {
@@ -110,6 +120,9 @@ function App() {
       const currentSlide = $(".screen").eq(currentSlideNumber);
       currentSlide.removeClass("down-scroll").addClass("up-scroll");
     }
+
+    // Add the hashLink to page url after slide.
+    window.location.href = window.location.href.split('#')[0] + routes[currentSlideNumber].hashURL;
   }, [currentSlideNumber]);
 
   return (
