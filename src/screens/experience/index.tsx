@@ -46,7 +46,6 @@ function Experience(props: Props) {
             speed: 1600,
             pagination: ".swiper-pagination",
             paginationBulletRender: function (swiper: any, index: number, className: string) {
-                console.log('className =', className);
                 var year = document
                     .querySelectorAll(".swiper-slide")
                 [index].getAttribute("data-year");
