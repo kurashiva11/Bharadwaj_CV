@@ -14,6 +14,7 @@ const resume = require('../../assets/KuraBharadwaj_Resume.pdf')
 type Props = {
     children: ReactChildren | JSX.Element[];
     currentScreen: any;
+    slidePageTo: (x: string) => void;
 }
 
 function Header(props: Props) {
@@ -21,6 +22,12 @@ function Header(props: Props) {
     const menuRef = useRef<HTMLDivElement>(null);
 
     const menuPressHandler = () => {
+        hamBurgerRef.current?.classList.toggle(styles['hamberger-open']);
+        menuRef.current?.classList.toggle(styles['menu-show']);
+    }
+
+    const navigateToOtherSlide = (pageName: string) => {
+        props.slidePageTo(pageName);
         hamBurgerRef.current?.classList.toggle(styles['hamberger-open']);
         menuRef.current?.classList.toggle(styles['menu-show']);
     }
@@ -42,10 +49,10 @@ function Header(props: Props) {
 
                     <div ref={menuRef} className={styles["menu"]}>
                         <ul>
-                            <li><a href="#About">About</a></li>
-                            <li><a href="#Experience">Experience</a></li>
-                            <li><a href="#Projects">Projects</a></li>
-                            <li><a href="#Skills">Skills</a></li>
+                            <li><a href="#About" onClick={() => navigateToOtherSlide('')}>About</a></li>
+                            <li><a href="#Experience" onClick={() => navigateToOtherSlide('experience')}>Experience</a></li>
+                            <li><a href="#Projects" onClick={() => navigateToOtherSlide('projects')}>Projects</a></li>
+                            <li><a href="#Skills" onClick={() => navigateToOtherSlide('skills')}>Skills</a></li>
                         </ul>
                     </div>
 

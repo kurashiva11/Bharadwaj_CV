@@ -1,4 +1,4 @@
-@use '../../index.scss'as base;
+@use '../../index.scss' as base;
 
 .topOfScreen {
     position: fixed;
@@ -116,6 +116,7 @@ $hamBurgerHeight: 30px;
             font-size: 30px;
             font-family: 'Rock Salt', cursive;
             text-decoration: none;
+            @extend .unselecteable;
         }
 
         &:hover {

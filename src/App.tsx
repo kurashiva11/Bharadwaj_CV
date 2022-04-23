@@ -13,11 +13,11 @@ import Header from "./components/Header";
 // can add upto 10 screens if require to add more screens then add nth-child css at public/index.css file.
 const routes = [
   {
-    path: "",
+    path: '',
     Screen: About,
   },
   {
-    path: "experience",
+    path: 'experience',
     Screen: Experience,
   },
   {
@@ -48,6 +48,14 @@ function App() {
 
   const moveDownByOnePage = () => {
     setCurrentSlideNumber(prev => prev + 1 < totalSlideNumber.current ? prev + 1 : prev);
+  }
+
+  const slidePageTo = (pagePath: string) => {
+    const targetPageIndex = routes.findIndex((ele) => ele.path === pagePath);
+    const targetSlideNumber = targetPageIndex - currentSlideNumber;
+    for (let i = 0; i < Math.abs(targetSlideNumber); i++) {
+      setTimeout(targetSlideNumber > 0 ? moveDownByOnePage : moveUpByOnePage, 250 * (i + 1));
+    }
   }
 
   useEffect(() => {
@@ -106,7 +114,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentScreen={routes[currentSlideNumber]}>
+      <Header currentScreen={routes[currentSlideNumber]} slidePageTo={slidePageTo}>
         {routes.map((route, index) => (
           <route.Screen key={route.path} isActive={index === currentSlideNumber} />
         ))}
