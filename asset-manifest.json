@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Bharadwaj_CV/static/css/main.f898eb9a.css",
-    "main.js": "/Bharadwaj_CV/static/js/main.6998656e.js",
+    "main.css": "/Bharadwaj_CV/static/css/main.ba38de7c.css",
+    "main.js": "/Bharadwaj_CV/static/js/main.297fc777.js",
     "static/media/KuraBharadwaj_Resume.pdf": "/Bharadwaj_CV/static/media/KuraBharadwaj_Resume.16c11eda85c09d82a0c6.pdf",
     "static/media/role.svg": "/Bharadwaj_CV/static/media/role.7ae3a7e5fc4bec2fd243f55456e9024b.svg",
     "static/media/name.svg": "/Bharadwaj_CV/static/media/name.7c12ef7c50ca30a5b96a3043f3988ebf.svg",
     "index.html": "/Bharadwaj_CV/index.html",
-    "main.f898eb9a.css.map": "/Bharadwaj_CV/static/css/main.f898eb9a.css.map",
-    "main.6998656e.js.map": "/Bharadwaj_CV/static/js/main.6998656e.js.map"
+    "main.ba38de7c.css.map": "/Bharadwaj_CV/static/css/main.ba38de7c.css.map",
+    "main.297fc777.js.map": "/Bharadwaj_CV/static/js/main.297fc777.js.map"
   },
   "entrypoints": [
-    "static/css/main.f898eb9a.css",
-    "static/js/main.6998656e.js"
+    "static/css/main.ba38de7c.css",
+    "static/js/main.297fc777.js"
   ]
 }
