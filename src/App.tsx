@@ -67,6 +67,21 @@ function App() {
     // For Screen Animations
     var ticking = false;
     totalSlideNumber.current = $(".screen").length;
+
+    const downScroll = () => {
+      //Down scroll
+      ticking = true;
+      moveDownByOnePage();
+      slideDurationTimeout(slideDurationSetting);
+    }
+
+    const upScroll = () => {
+      //Up scroll
+      ticking = true;
+      moveUpByOnePage();
+      slideDurationTimeout(slideDurationSetting);
+    }
+
     // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
     function parallaxScroll(evt: any) {
       //Set delta for all other browsers
@@ -80,16 +95,10 @@ function App() {
       }
       if (ticking !== true) {
         if (delta <= -scrollSensitivitySetting) {
-          //Down scroll
-          ticking = true;
-          moveDownByOnePage();
-          slideDurationTimeout(slideDurationSetting);
+          downScroll();
         }
         if (delta >= scrollSensitivitySetting) {
-          //Up scroll
-          ticking = true;
-          moveUpByOnePage();
-          slideDurationTimeout(slideDurationSetting);
+          upScroll();
         }
       }
     }
@@ -104,6 +113,8 @@ function App() {
     // ------------- ADD EVENT LISTENER ------------- //
     const mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
     window.addEventListener(mousewheelEvent, parallaxScroll, false);
+    window.document.body.addEventListener('swiped-up', downScroll);
+    window.document.body.addEventListener('swiped-down', upScroll);
 
     // ------------- MOVE PAGE TO PATH IN THE URL ------------- //
     const loc = window.location.href.split('#');
