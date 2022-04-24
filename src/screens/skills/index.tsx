@@ -29,7 +29,7 @@ function Skills(props: Props) {
 
     useEffect(() => {
         TagCloudJS("." + styles['Sphere'], technicalSkills, {
-            radius: window.innerWidth / 4,
+            radius: window.innerWidth > 987 ? window.innerWidth / 4 : window.innerWidth / 2,
             maxSpeed: 'fast',
             initSpeed: 'fast',
             direction: 135,
