@@ -186,7 +186,6 @@ $gifColor: white;
             display: block;
             position: relative;
             width: 20px;
-            font-size: 20px;
             height: 20px;
             border-right: $gifWidth solid $gifColor;
             border-bottom: $gifWidth solid $gifColor;
@@ -209,7 +208,6 @@ $gifColor: white;
     height: 40px;
     display: flex;
     @extend .center;
-
 }
 
 .page--name {
@@ -220,4 +218,49 @@ $gifColor: white;
     text-decoration: underline;
     @extend .topOfScreen;
     @extend .unselecteable;
+}
+
+/*Shrinking for mobile*/
+@media (max-width: 470px) {
+    .bar {
+        width: 25px;
+        height: 3px;
+    }
+    .hamburger-icon {
+        width: 25px;
+        height: 15px;
+    }
+
+    .profiles {
+        & > .profile img {
+            width: 25px;
+            height: 25px;
+            // no change as in mobile there is no concept of hover.
+            &:hover {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        & .download--gif {
+            width: 25px;
+            height: 25px;
+            &::before {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 780px) {
+    .name {
+        display: none;
+    }
+}
+
+@media (max-width: 890px) {
+    .page--name {
+        display: none;
+    }
 }
