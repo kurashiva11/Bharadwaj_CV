@@ -14,6 +14,7 @@
 
 
 .gif--container {
+    display: none;
     flex: 2;
 }
 
@@ -205,6 +206,10 @@
 }
 
 @media screen and (min-width: 768px) {
+    .gif--container {
+        display: block;
+        flex: 1;
+    }
     .timeline .swiper-slide::after {
         right: -30%;
         bottom: -8%;
@@ -260,6 +265,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .gif--container {
+        display: block;
+        flex: 2;
+    }
     .timeline .swiper-slide::after {
         right: -20%;
         bottom: -12%;
