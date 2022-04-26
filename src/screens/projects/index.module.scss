@@ -1,15 +1,18 @@
-@use  '../../index.scss' as base;
+@use '../../index.scss'as base;
 
 @keyframes gradient {
     0% {
         background-position: 0% 20%;
     }
+
     33% {
         background-position: 100% 20%;
     }
+
     66% {
         background-position: 0% 100%;
     }
+
     100% {
         background-position: 100% 100%;
     }
@@ -26,158 +29,616 @@
     animation: gradient 25s ease-in-out infinite alternate;
 }
 
-
-$transitionTime: 0.5s;
-$numberOfProjects: 5;
-
-// $cols - number of column
-// n - number of items
-
-@mixin moveInGrid($cols, $n) {
-    $rows: ceil($n / $cols);
-
-    .grid {
-        grid-template-columns: repeat($cols, 1fr);
-        grid-template-rows: repeat($rows, 100% / $rows);
-
-        li:last-child:after,
-        li:last-child:before {
-            left: 100% * (($cols - $n) % $cols);
-            transform: translate3d(-100% * (($cols - 1) / 2), -100% * (($rows - 1) / 2), 0);
-        }
-
-        @for $i from 1 through $n - 1 {
-            $x: ($cols - $i) % $cols;
-            $y: $rows - floor(($i - 1) / $cols) - 1;
-
-            li:nth-child(#{$i}):hover~li:last-child:after,
-            li:nth-child(#{$i}):hover~li:last-child:before {
-                transform: translate3d(-$x*100%, -$y*100%, 0);
-            }
-        }
-
-        li:last-child:hover:after,
-        li:last-child:hover:before {
-            transform: translate3d(-100% * (($cols - $n) % $cols), 0%, 0);
-        }
-    }
-
+.border {
+    border: 2px solid black;
 }
 
-@mixin colors($n, $colors) {
-    @for $i from 1 through $n - 1 {
-        li:nth-child(#{$i}):hover~li:last-child:after {
-            @if (nth($colors, $i)) {
-                background: nth($colors, $i % $n);
-            }
-        }
-    }
-
-    li:last-child:hover:after {
-        background: nth($colors, -1);
-    }
+.content {
+    height: 100vh;
+    width: 80vw;
+    padding: 8em 0em 0em;
+    z-index: 99;
 }
 
-.title,
-a {
-    display: block;
-    height: 100%;
+.content_sub-first {
+    border-width: 0px 0px 7px 7px;
+    border-color: #ee5159;
+    border-style: solid;
+    border-radius: 0px 0px 0px 70px;
 }
 
-.title {
-    max-width: 100%;
-    width: 100%;
-    object-fit: cover;
+.content_maintitle {
+    background-image: url('https://image.ibb.co/kYsMj6/product_info.png');
     position: absolute;
-    top: 50%;
-    font-size: 25px;
-    font-family: 'Rock Salt', cursive;
-    @extend .unselecteable;
+    left: 100px;
+    top: 60px;
+    z-index: 999;
+    padding: 33px 26px 26px 26px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    background-size: cover;
+    color: red;
+    font-weight: 700;
 }
 
-.grid {
-    display: grid;
-    overflow: hidden;
-    list-style: none;
-    margin: 0;
-    gap: 10px;
-    padding: 25px;
-    width: 90vw;
-    height: 90vh;
-
-    li {
-        text-align: center;
-        position: relative;
-        cursor: pointer;
-    }
-
-    li:hover~li:last-child:after,
-    li:last-child:hover:after,
-    li:hover~li:last-child:before,
-    li:last-child:hover:before {
-        opacity: 1;
-        transition: $transitionTime ease;
-    }
-
-    li:last-child:after,
-    li:last-child:before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
-        -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
-        opacity: 0;
-        transition: opacity $transitionTime, transform $transitionTime $transitionTime, background $transitionTime;
-    }
-
-    li:last-child:after {
-        mix-blend-mode: multiply;
-        background: #aaafc3;
-    }
-
-    li:last-child:before {
-        backdrop-filter: grayscale(100%) blur(2px);
-        -webkit-backdrop-filter: grayscale(100%) blur(2px);
-    }
-
-    //colors (optional)
-    @include colors($numberOfProjects, [ #d9e826, #45abba, #bf4040, #cc00ff, #00ffff, #1c82ab, #80b280, #fff ]);
+.content_sub {
+    min-height: 279px;
+    position: relative;
 }
 
-@include moveInGrid(3, $numberOfProjects);
-
-@media (max-width: 60em) {
-    @include moveInGrid(2, $numberOfProjects);
+.content_box:nth-of-type(2n) {
+    flex-direction: column;
 }
 
-.description {
-    font-family: "Unica One", sans-serif;
-    font-size: 1.25rem;
+.content_box {
+    width: 18%;
+    display: flex;
+    flex-direction: column-reverse;
+    float: left;
+    min-height: 630px;
     position: absolute;
-    display: block;
-    right: 2rem;
-    left: 2rem;
+    top: 0;
+    left: 0;
+    padding-left: 16px;
+}
+
+.content_box:nth-of-type(2n) .number-count-even {
+    margin-top: 1px
+}
+
+$numOfProjects: 5;
+
+.content_box {
+    cursor: pointer;
+    @for $i from 1 through $numOfProjects {
+        &:nth-of-type(#{$i}) {
+            left: calc(15% + (#{$i}-1)*10%);
+        }
+    }
+}
+
+.content-content {
+    min-height: 271px;
+    position: relative;
+    backdrop-filter: blur(4px);
+}
+
+.content_sub .box-1 {
+
+    bottom: -7px;
+    left: 12%;
+}
+
+.number-count-odd,
+.number-count-even {
+    height: 60px;
+    width: 80px;
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
-    top: 50%;
-    margin: auto;
-    color: white;
-    z-index: 100;
-    opacity: 0;
-    transform: translate3d(0, -50%, 0);
-    transition: .3s 0s;
+    font-size: 32px;
+    line-height: 1.8;
+    margin-bottom: 80px;
+    margin-left: -60px;
+    position: relative;
+}
+
+.number-count-odd {
+    background-image: url(https://i.imgur.com/hPCc7JX.png);
+}
+
+.number-count-even {
+    background-image: url(https://i.imgur.com/kVRsV5D.png);
+}
+
+.number-count-even::before {
+    bottom: 120px;
+    background: #f6b6b9;
+}
+
+.number-count-odd::before {
+    top: 100px;
+    background: #ee535b;
+}
+
+.number-count-odd::before,
+.number-count-even::before {
+    content: '';
+    height: 210px;
+    width: 2px;
+    position: absolute;
+    left: 40px;
+}
+
+.number-count-odd::after {
+    border-width: 10px 10px 10px 10px;
+    border-color: rgb(238, 75, 81) rgba(238, 75, 81, 0) rgba(238, 75, 81, 0) rgba(238, 75, 81, 0);
+    bottom: -60px;
+}
+
+.number-count-even::after {
+    border-width: 10px 10px 10px 10px;
+    border-color: rgba(238, 75, 81, 0) rgba(238, 75, 81, 0) #f6b6b9 rgba(238, 75, 81, 0);
+    top: -75px;
+}
+
+.number-count-odd::after,
+.number-count-even::after {
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    border-style: solid;
+    left: 31px;
+}
+
+$personWidth: 80px;
+$personHeight: 200px;
+
+$handWidth: $personWidth / 3;
+$handHeight: $personHeight / 3;
+
+$legsWidth: $personWidth / 3;
+$legsHeight: $personHeight / 3;
+
+$numOfPersons: 8;
+
+.person {
+    @for $i from 1 through $numOfPersons {
+        &#{$i} {
+            width: $personWidth;
+            height: $personHeight;
+            display: flex;
+            @extend .center;
+
+            & .head--container {
+                width: $personWidth / 2;
+                min-height: $personWidth * 3/2;
+                display: flex;
+                animation: head-animation 2s ease forwards infinite;
+                position: relative;
+                top: $personWidth * 3/2 - $personWidth / 2;
+
+                & .head {
+                    @extend .border;
+                    width: $personWidth / 2;
+                    height: $personWidth / 2;
+                    border-radius: $personWidth / 4;
+                    display: flex;
+                    position: relative;
+                    animation: head-animation 2s ease forwards infinite;
+                    background-color: white;
+                    @extend .center;
+
+
+                    & .face {
+                        width: $personWidth / 5;
+                        height: $personWidth / 5;
+                        background-color: black;
+                    }
+                }
+            }
+
+            .stomach {
+                @extend .border;
+                width: $personWidth / 2;
+                min-height: $personHeight / 2;
+                background-color: white;
+                position: relative;
+                z-index: 15;
+                bottom: $handHeight;
+
+                border-radius: $personHeight / 2;
+            }
+
+            .hands {
+                width: $handWidth;
+                min-height: $handHeight;
+                border-radius: $handHeight / 2;
+                position: relative;
+                top: 10px;
+
+                & .left,
+                & .right {
+                    z-index: 14;
+                    display: flex;
+                    @extend .center;
+                    justify-content: flex-end;
+                    width: $handWidth;
+                    height: $handHeight * 3/2;
+                    position: relative;
+                    bottom: $handHeight - 20px;
+                    animation: bicep-anim 2s ease alternate infinite;
+
+                    & .bicep {
+                        @extend .border;
+                        width: 65%;
+                        min-height: 50%;
+                        border-radius: $handHeight / 2;
+                        background-color: rgb(242, 197, 138);
+                    }
+
+                    & .foreamr--container {
+                        width: 40%;
+                        height: 40%;
+                        position: absolute;
+                        bottom: -15px;
+                        animation: forearms-rotate 4s ease infinite forwards;
+                        display: flex;
+                        align-items: flex-end;
+                    }
+
+                    & .forearm {
+                        @extend .border;
+                        width: 100%;
+                        height: 60%;
+                        border-radius: $handHeight / 2;
+                        display: flex;
+                        background-color: rgb(242, 197, 138);
+
+                        &::before {
+                            content: '';
+                            width: 4px;
+                            height: 4px;
+                            border-radius: 4px;
+                            background-color: black;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    }
+                }
+
+                & .right {
+                    z-index: 16;
+                    bottom: ($handHeight * 2) + 15px;
+                    animation-delay: .5s;
+                }
+            }
+
+            .legs {
+                width: $handWidth;
+                min-height: $handHeight;
+                border-radius: $handHeight / 2;
+                position: relative;
+                bottom: $handHeight + 15px;
+
+                & .left,
+                & .right {
+                    z-index: 14;
+                    display: flex;
+                    @extend .center;
+                    justify-content: flex-end;
+                    width: $handWidth;
+                    height: $handHeight * 3/2;
+                    position: relative;
+                    bottom: $handHeight - 20px;
+                    animation: bicep-anim 2s ease alternate infinite;
+
+                    & .thigh {
+                        @extend .border;
+                        width: 65%;
+                        min-height: 50%;
+                        border-radius: $handHeight / 2;
+                        background-color: rgb(242, 197, 138);
+                    }
+
+                    & .feet--container {
+                        width: 40%;
+                        height: 40%;
+                        position: absolute;
+                        bottom: -15px;
+                        animation: forearms-rotate 4s ease infinite forwards;
+                        display: flex;
+                        align-items: flex-end;
+                    }
+
+                    & .feet {
+                        @extend .border;
+                        width: 100%;
+                        height: 60%;
+                        border-radius: $handHeight / 2;
+                        display: flex;
+                        background-color: rgb(242, 197, 138);
+
+                        &::before {
+                            content: '';
+                            width: 4px;
+                            height: 4px;
+                            border-radius: 4px;
+                            background-color: black;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                    }
+                }
+
+                & .right {
+                    z-index: 16;
+                    bottom: ($handHeight * 2) + 15px;
+                    animation-delay: .5s;
+                }
+            }
+        }
+    }
+}
+
+.persons {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     @extend .unselecteable;
+
+    &>* {
+        @extend .unselecteable;
+    }
 }
 
-li:hover .description {
-    opacity: 1;
-    transition: .6s .3s;
+
+@keyframes head-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(45deg);
+    }
+
+    66% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
-li:hover .title {
-    opacity: 0;
-    transition: .6s .3s;
+@keyframes bicep-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(70deg);
+    }
+
+    66% {
+        transform: rotate(-70deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes forearms-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes leg-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(70deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes feet-rotate {
+    0% {
+        transform: rotate(-360deg);
+    }
+
+    50% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1250px) {
+    @for $i from calc($numOfPersons * 3/4) through $numOfPersons {
+        .person#{$i} {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    @for $i from calc($numOfPersons * 1/2) through $numOfPersons {
+        .person#{$i} {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    .content {
+        height: auto;
+        padding: 2em 0em 1em;
+    }
+
+    .content_sub,
+    .content_box,
+    .content-content {
+        min-height: auto;
+        margin-bottom: 10px;
+    }
+
+    .content_box {
+        display: block;
+        position: relative;
+        width: 50%;
+        left: 0 !important;
+    }
+
+    .content_maintitle {
+        position: relative;
+        left: 18%;
+        top: 0;
+        margin-bottom: 20px;
+    }
+
+    .content_sub-first {
+        border: 0px;
+    }
+
+    .number-count-odd::before,
+    .number-count-even::before,
+    .number-count-odd::after,
+    .number-count-even::after {
+        display: none;
+    }
+
+    .number-count-odd,
+    .number-count-even {
+        display: none;
+    }
+
+    .mobile-number-count {
+        position: absolute;
+        left: -39px;
+        top: -4px;
+        border: 2px solid #ee525a;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 1.5;
+        z-index: 9999;
+        display: block !important;
+        box-shadow: 0px 5px 11px rgba(238, 83, 91, 0.34);
+    }
+
+    .digital_payment_method .button_link {
+        text-align: center;
+        display: inline-block;
+    }
+
+    .show-case .show-case-sub {
+        border-width: 10px;
+        border-top: 10px solid #2F3547;
+        border-bottom: 10px solid #5A6371;
+        -moz-background-size: 30px 100%;
+        border-radius: 20px;
+        padding: 0px 6px;
+    }
+}
+
+@media screen and (max-width:767px) {
+
+    .eventandphysicelSection,
+    .proud_stores,
+    .digital_payment_method {
+        padding: 2em 0em;
+    }
+
+    .internal-bannner {
+        padding: 4em 0em 2em;
+    }
+
+    .eventandphysicelSection img {
+        margin: 0px;
+    }
+
+    .digital_payment_method .angle-right {
+        display: none;
+    }
+
+    .content {
+        height: auto;
+        padding: 2em 0em 1em;
+    }
+
+    .content_sub,
+    .content_box,
+    .content-content {
+        min-height: auto;
+        margin-bottom: 10px;
+    }
+
+    .content_box {
+        display: block;
+        position: relative;
+        width: 100%;
+        left: 0 !important;
+    }
+
+    .content_maintitle {
+        position: relative;
+        left: 18%;
+        top: 0;
+        margin-bottom: 20px;
+    }
+
+    .content_sub-first {
+        border: 0px;
+    }
+
+    .number-count-odd::before,
+    .number-count-even::before,
+    .number-count-odd::after,
+    .number-count-even::after {
+        display: none;
+    }
+
+    .number-count-odd,
+    .number-count-even {
+        display: none;
+    }
+
+    .mobile-number-count {
+        position: absolute;
+        left: -39px;
+        top: -4px;
+        border: 2px solid #ee525a;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 1.5;
+        z-index: 9999;
+        display: block !important;
+        box-shadow: 0px 5px 11px rgba(238, 83, 91, 0.34);
+    }
+
+    .button_link_segment {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .digital_payment_method .button_link {
+        text-align: center;
+        display: inline-block;
+    }
+
+    .show-case .show-case-sub {
+        border-width: 10px;
+        border-top: 10px solid #2F3547;
+        border-bottom: 10px solid #5A6371;
+        -moz-background-size: 30px 100%;
+        border-radius: 20px;
+        padding: 0px 6px;
+    }
 }

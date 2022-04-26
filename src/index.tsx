@@ -16,10 +16,7 @@ root.render(
     </BrowserRouter>
   </ErrorBoundary>
 );
-
-/** TODO:
- * 2. add swipe listener so user can move to next screen even with swipe.
- * 3. show loader till the page loads.
- * 4. show current page index similar to microsoft by numbers, but from top to bottom.
- * 5. fix css to work even with mobile.
+/**
+ * 1. remove unwanted code.
+ * 2. make a mouse follower.
  */
