@@ -1,23 +1,5 @@
 @use '../../index.scss'as base;
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 20%;
-    }
-
-    33% {
-        background-position: 100% 20%;
-    }
-
-    66% {
-        background-position: 0% 100%;
-    }
-
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
 .projects {
     width: 100vw;
     height: 100vh;
