@@ -18,31 +18,16 @@
 .content {
     height: 100vh;
     width: 80vw;
-    padding: 8em 0em 0em;
-    z-index: 99;
+    padding: 3em 0em 0em;
+    z-index: 999;
+    backdrop-filter: blur(4px);
 }
 
 .content_sub-first {
-    border-width: 0px 0px 7px 7px;
+    border-width: 0px 0px 7px 0px;
     border-color: #ee5159;
     border-style: solid;
-    border-radius: 0px 0px 0px 70px;
-}
-
-.content_maintitle {
-    background-image: url('https://image.ibb.co/kYsMj6/product_info.png');
-    position: absolute;
-    left: 100px;
-    top: 60px;
-    z-index: 999;
-    padding: 33px 26px 26px 26px;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    background-size: cover;
-    color: red;
-    font-weight: 700;
+    border-radius: 0px 0px 0px 0px;
 }
 
 .content_sub {
@@ -84,7 +69,6 @@ $numOfProjects: 5;
 .content-content {
     min-height: 271px;
     position: relative;
-    backdrop-filter: blur(4px);
 }
 
 .content_sub .box-1 {
@@ -349,6 +333,7 @@ $numOfPersons: 8;
 .persons {
     position: absolute;
     bottom: 0;
+    left: -5vw;
     width: 100vw;
     display: flex;
     flex-direction: row;

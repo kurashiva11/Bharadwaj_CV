@@ -42,9 +42,6 @@ function Projects(props: Props) {
             <div className={styles["content"]}>
                 <div className={"ui grid stackable".split(' ').map(s => styles[s]).join(' ')}>
                     <div className={"fifteen wide computer fourteen wide tablet sixteen wide mobile column right floated".split(' ').map(s => styles[s]).join(' ')}>
-                        <div className={styles["content_maintitle"]}>
-                            <p>Projects</p>
-                        </div>
                         <div className={"content_sub-first content_sub".split(' ').map(s => styles[s]).join(' ')}>
                             {projectsData.map((project, index) => (
                                 <div className={styles["content_box"]} key={index} onClick={() => window.open(project.uri, '_blank')}>
