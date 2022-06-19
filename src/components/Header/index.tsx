@@ -57,7 +57,7 @@ function Header(props: Props) {
                     </div>
 
                     <div className={styles["profiles"]}>
-                        <span className={styles["profile"]} onClick={() => window.open('https://www.linkedin.com/in/bharadwaj-kura-36828b18a/', '_blank')}><img src={linkedin} alt="." /></span>
+                        <span className={styles["profile"]} onClick={() => window.open('https://www.linkedin.com/in/bharadwaj-kura/', '_blank')}><img src={linkedin} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://github.com/kurashiva11', '_blank')}><img src={github} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://leetcode.com/kurashiva/', '_blank')}><img src={leetcode} alt="." /></span>
                         <span className={styles["profile"]} onClick={() => window.open('https://www.hackerrank.com/kura_shiva', '_blank')}><img src={hackerrank} alt="." /></span>
